@@ -1,0 +1,8 @@
+{
+  "name": "Gurumbé Capital",
+  "description": "Institutional South-to-South Investment Architecture. Bridging Spain and the Global South through structural integrity and sovereign assets.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
