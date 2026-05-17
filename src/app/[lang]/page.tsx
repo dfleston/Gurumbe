@@ -4,10 +4,9 @@ import Hero from '@/components/sections/Hero'
 import PreHero from '@/components/sections/PreHero'
 import Corridor from '@/components/sections/Corridor'
 import WhyNow from '@/components/sections/WhyNow'
+import TokenizationIntro from '@/components/sections/TokenizationIntro'
 import WhatWeBuild from '@/components/sections/WhatWeBuild'
-import HowWeWork from '@/components/sections/HowWeWork'
-import Ethos from '@/components/sections/Ethos'
-import Who from '@/components/sections/Who'
+import FocusCorridors from '@/components/sections/FocusCorridors'
 import Thoughts from '@/components/sections/Thoughts'
 import Contact from '@/components/sections/Contact'
 import { getDictionary } from '@/i18n/getDictionary'
@@ -25,13 +24,12 @@ export default async function Home({
     <main className="min-h-screen bg-surface-main">
       <Navigation dict={dict.navigation} lang={lang} />
       <PreHero dict={dict.preHero} />
-      <Hero dict={dict.hero} />
+      <Hero dict={dict.hero} lang={lang} />
       <Corridor dict={dict.corridor} />
       <WhyNow dict={dict.whyNow} />
+      <TokenizationIntro dict={dict.tokenizationIntro} lang={lang} />
       <WhatWeBuild dict={dict.whatWeBuild} />
-      <HowWeWork dict={dict.howWeWork} />
-      <Ethos dict={dict.ethos} />
-      <Who dict={dict.who} />
+      <FocusCorridors dict={dict.focusCorridors} />
       <Thoughts dict={dict.thoughts} lang={lang} />
       <Contact dict={dict.contact} />
       <Footer dict={dict.footer} lang={lang} />

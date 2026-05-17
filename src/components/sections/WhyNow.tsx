@@ -1,5 +1,7 @@
 'use client'
 
+import Link from 'next/link'
+
 type WhyNowProps = {
   dict: any
 }
@@ -12,13 +14,6 @@ export default function WhyNow({ dict }: WhyNowProps) {
       title: dict.force1Title,
       body: dict.force1Body,
       accentColor: 'var(--color-secondary)',
-      icon: (
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10 5.52 0 10-4.48 10-10" strokeLinecap="round" strokeDasharray="4 4" />
-          <path d="M12 6c3 0 6 2 6 6s-3 6-6 6" strokeLinecap="round" />
-          <path d="M12 6c-3 0-6 2-6 6s3 6 6 6" strokeLinecap="round" />
-        </svg>
-      ),
     },
     {
       number: '02',
@@ -26,13 +21,6 @@ export default function WhyNow({ dict }: WhyNowProps) {
       title: dict.force2Title,
       body: dict.force2Body,
       accentColor: 'var(--color-primary)',
-      icon: (
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10 5.52 0 10-4.48 10-10" strokeLinecap="round" strokeDasharray="4 4" />
-          <path d="M12 6c3 0 6 2 6 6s-3 6-6 6" strokeLinecap="round" />
-          <path d="M12 6c-3 0-6 2-6 6s3 6 6 6" strokeLinecap="round" />
-        </svg>
-      ),
     },
     {
       number: '03',
@@ -40,13 +28,28 @@ export default function WhyNow({ dict }: WhyNowProps) {
       title: dict.force3Title,
       body: dict.force3Body,
       accentColor: 'var(--color-tertiary)',
-      icon: (
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10 5.52 0 10-4.48 10-10" strokeLinecap="round" strokeDasharray="4 4" />
-          <path d="M12 6c3 0 6 2 6 6s-3 6-6 6" strokeLinecap="round" />
-          <path d="M12 6c-3 0-6 2-6 6s3 6 6 6" strokeLinecap="round" />
-        </svg>
-      ),
+    },
+    {
+      number: '04',
+      label: dict.force4Label,
+      title: dict.force4Title,
+      body: dict.force4Body,
+      accentColor: 'var(--color-secondary)',
+      link: '/tokenization',
+    },
+    {
+      number: '05',
+      label: dict.force5Label,
+      title: dict.force5Title,
+      body: dict.force5Body,
+      accentColor: 'var(--color-primary)',
+    },
+    {
+      number: '06',
+      label: dict.force6Label,
+      title: dict.force6Title,
+      body: dict.force6Body,
+      accentColor: 'var(--color-tertiary)',
     },
   ]
 
@@ -72,18 +75,11 @@ export default function WhyNow({ dict }: WhyNowProps) {
           </h2>
 
           <div
-            style={{ width: '6rem', height: '1px', backgroundColor: 'var(--color-rule-line)', marginBottom: '2rem' }}
+            style={{ width: '6rem', height: '1px', backgroundColor: 'var(--color-rule-line)' }}
           />
-
-          <p
-            className="font-body-lg"
-            style={{ color: 'var(--color-on-surface-variant)', maxWidth: '36rem' }}
-          >
-            {dict.body}
-          </p>
         </header>
 
-        {/* Three forces grid */}
+        {/* Six forces grid */}
         <div
           style={{
             display: 'grid',
@@ -92,98 +88,91 @@ export default function WhyNow({ dict }: WhyNowProps) {
           }}
           className="forces-grid"
         >
-          {forces.map((force) => (
-            <article
-              key={force.number}
-              style={{
-                backgroundColor: 'var(--color-surface)',
-                padding: '2rem',
-                border: '1px solid var(--color-rule-line)',
-                borderTop: `6px solid ${force.accentColor}`,
-                position: 'relative',
-                transition: 'transform 0.3s, border-color 0.3s',
-                cursor: 'default',
-              }}
-              onMouseEnter={(e) => {
-                const el = e.currentTarget as HTMLElement
-                el.style.transform = 'translateY(-4px)'
-              }}
-              onMouseLeave={(e) => {
-                const el = e.currentTarget as HTMLElement
-                el.style.transform = 'translateY(0)'
-              }}
-            >
-              {/* Icon */}
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '1.5rem',
-                  right: '1.5rem',
-                  color: force.accentColor,
-                  opacity: 0.6,
+          {forces.map((force) => {
+            const content = (
+              <>
+                <div style={{ marginTop: '1rem' }}>
+                  <span
+                    className="font-label-lg"
+                    style={{ color: force.accentColor, display: 'block', marginBottom: '1rem' }}
+                  >
+                    {force.label}
+                  </span>
+
+                  <h3
+                    className="font-headline-md"
+                    style={{ color: 'var(--color-parchment)', marginBottom: '1rem' }}
+                  >
+                    {force.title}
+                  </h3>
+
+                  <p className="font-body-md" style={{ color: 'var(--color-on-surface-variant)' }}>
+                    {force.body}
+                  </p>
+                </div>
+              </>
+            )
+
+            const baseStyle: React.CSSProperties = {
+              backgroundColor: 'var(--color-surface)',
+              padding: '2rem',
+              border: '1px solid var(--color-rule-line)',
+              borderTop: `6px solid ${force.accentColor}`,
+              position: 'relative',
+              transition: 'transform 0.3s, border-color 0.3s',
+              cursor: force.link ? 'pointer' : 'default',
+              textDecoration: 'none',
+              display: 'block',
+            }
+
+            if (force.link) {
+              return (
+                <Link
+                  key={force.number}
+                  href={`/en${force.link}`} // Note: using en as primary, lang dynamic is preferred but we are inside client component. Let's make sure it handles /es if needed.
+                  // Wait, let's keep path relative to lang if possible or just relative '/tokenization' (middleware or navigation router can handle it). Let's use simple route.
+                  style={baseStyle}
+                  onMouseEnter={(e) => {
+                    const el = e.currentTarget as HTMLElement
+                    el.style.transform = 'translateY(-4px)'
+                    el.style.borderColor = 'var(--color-primary)'
+                  }}
+                  onMouseLeave={(e) => {
+                    const el = e.currentTarget as HTMLElement
+                    el.style.transform = 'translateY(0)'
+                    el.style.borderColor = 'var(--color-rule-line)'
+                  }}
+                >
+                  {content}
+                </Link>
+              )
+            }
+
+            return (
+              <article
+                key={force.number}
+                style={baseStyle}
+                onMouseEnter={(e) => {
+                  const el = e.currentTarget as HTMLElement
+                  el.style.transform = 'translateY(-4px)'
+                }}
+                onMouseLeave={(e) => {
+                  const el = e.currentTarget as HTMLElement
+                  el.style.transform = 'translateY(0)'
                 }}
               >
-                {force.icon}
-              </div>
-
-              <div style={{ marginTop: '3rem' }}>
-                <span
-                  className="font-label-lg"
-                  style={{ color: force.accentColor, display: 'block', marginBottom: '1rem' }}
-                >
-                  {force.number} · {force.label}
-                </span>
-
-                <h3
-                  className="font-headline-md"
-                  style={{ color: 'var(--color-parchment)', marginBottom: '1rem' }}
-                >
-                  {force.title}
-                </h3>
-
-                <p className="font-body-md" style={{ color: 'var(--color-on-surface-variant)' }}>
-                  {force.body}
-                </p>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        {/* Pull quote */}
-        <div
-          style={{
-            marginTop: '5rem',
-            paddingLeft: '2rem',
-            borderLeft: '6px solid var(--color-tertiary)',
-            maxWidth: '48rem',
-            marginLeft: '16.666%',
-            paddingTop: '0.5rem',
-            paddingBottom: '0.5rem',
-            background: 'linear-gradient(to right, rgba(181,83,29,0.05), transparent)',
-          }}
-          className="pull-quote-offset"
-        >
-          <p
-            className="font-headline-md"
-            style={{ color: 'var(--color-parchment)', fontStyle: 'italic', marginBottom: '1.25rem' }}
-          >
-            {dict.quote}
-          </p>
-          <p
-            className="font-label-lg"
-            style={{ color: 'var(--color-primary)', letterSpacing: '0.2em' }}
-          >
-            {dict.quoteLabel}
-          </p>
+                {content}
+              </article>
+            )
+          })}
         </div>
       </div>
 
       <style>{`
         @media (max-width: 767px) {
           .forces-grid { grid-template-columns: 1fr !important; }
-          .pull-quote-offset { margin-left: 0 !important; }
         }
-        @media (max-width: 1023px) {
+        @media (min-width: 768px) and (max-width: 1023px) {
           .forces-grid { grid-template-columns: 1fr 1fr !important; }
         }
       `}</style>

@@ -16,7 +16,7 @@ export default function Thoughts({ dict, lang }: ThoughtsProps) {
       teaser: dict.piece1Teaser,
       readTime: dict.piece1ReadTime,
       category: dict.piece1Category,
-      href: `/${lang}/thoughts`,
+      slug: 'the-corridor-was-always-there',
     },
     {
       type: dict.piece2Type,
@@ -25,7 +25,16 @@ export default function Thoughts({ dict, lang }: ThoughtsProps) {
       teaser: dict.piece2Teaser,
       readTime: dict.piece2ReadTime,
       category: dict.piece2Category,
-      href: `/${lang}/thoughts`,
+      slug: 'tokenization-as-a-binary-transition',
+    },
+    {
+      type: dict.piece3Type || 'MONETARY ARCHITECTURE',
+      title: dict.piece3Title || 'The African Unit of Account — A Perspective',
+      subtitle: dict.piece3Subtitle || 'A Proposal for Supranational Settlement and Sovereign Backing',
+      teaser: dict.piece3Teaser || 'In early 2026, we presented a framework for expanding the African Unit of Account (AUA) to a director at the African Development Bank (AfDB). By backing a digital unit with direct mineral endowments, we can resolve the architectural flaw in the cost of capital.',
+      readTime: dict.piece3ReadTime || '10 min read',
+      category: dict.piece3Category || 'Monetary Architecture',
+      slug: 'the-african-unit-of-account-a-perspective',
     },
   ]
 
@@ -86,19 +95,19 @@ export default function Thoughts({ dict, lang }: ThoughtsProps) {
           </Link>
         </div>
 
-        {/* Two featured cards */}
+        {/* 3-card grid */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
+            gridTemplateColumns: 'repeat(3, 1fr)',
             gap: '2rem',
           }}
           className="thoughts-grid"
         >
-          {featuredPieces.map((piece, i) => (
+          {featuredPieces.map((piece) => (
             <Link
               key={piece.title}
-              href={piece.href}
+              href={`/${lang}/thoughts/${piece.slug}`}
               style={{ textDecoration: 'none' }}
             >
               <article
@@ -111,8 +120,6 @@ export default function Thoughts({ dict, lang }: ThoughtsProps) {
                   flexDirection: 'column',
                   transition: 'transform 0.3s, border-color 0.3s',
                   cursor: 'pointer',
-                  // slight stagger
-                  marginTop: i === 1 ? '2rem' : '0',
                 }}
                 onMouseEnter={(e) => {
                   const el = e.currentTarget as HTMLElement
@@ -124,7 +131,6 @@ export default function Thoughts({ dict, lang }: ThoughtsProps) {
                   el.style.transform = 'translateY(0)'
                   el.style.borderColor = 'var(--color-outline-variant)'
                 }}
-                className={i === 1 ? 'thought-offset' : ''}
               >
                 {/* Meta row */}
                 <div
@@ -229,9 +235,8 @@ export default function Thoughts({ dict, lang }: ThoughtsProps) {
       </div>
 
       <style>{`
-        @media (max-width: 767px) {
-          .thoughts-grid { grid-template-columns: 1fr !important; }
-          .thought-offset { margin-top: 0 !important; }
+        @media (max-width: 991px) {
+          .thoughts-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
         }
       `}</style>
     </section>

@@ -1,10 +1,13 @@
 'use client'
 
+import Link from 'next/link'
+
 type HeroProps = {
   dict: any
+  lang: string
 }
 
-export default function Hero({ dict }: HeroProps) {
+export default function Hero({ dict, lang }: HeroProps) {
   return (
     <section
       id="hero"
@@ -123,26 +126,28 @@ export default function Hero({ dict }: HeroProps) {
         </p>
 
         {/* CTA */}
-        <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-          <a
-            href="#corridor"
-            className="font-label-lg"
+        <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
+          <Link
+            href={`/${lang}/bridge`}
+            className="font-label-lg animate-fade-up"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.75rem',
               color: 'var(--color-primary)',
               textDecoration: 'none',
-              transition: 'color 0.3s',
+              transition: 'color 0.3s, transform 0.2s',
             }}
-            onMouseEnter={(e) =>
-              ((e.currentTarget as HTMLElement).style.color =
-                'var(--color-parchment)')
-            }
-            onMouseLeave={(e) =>
-              ((e.currentTarget as HTMLElement).style.color =
-                'var(--color-primary)')
-            }
+            onMouseEnter={(e) => {
+              const el = e.currentTarget as HTMLElement
+              el.style.color = 'var(--color-parchment)'
+              el.style.transform = 'translateX(4px)'
+            }}
+            onMouseLeave={(e) => {
+              const el = e.currentTarget as HTMLElement
+              el.style.color = 'var(--color-primary)'
+              el.style.transform = 'translateX(0)'
+            }}
           >
             {dict.enter}
             <svg
@@ -153,14 +158,18 @@ export default function Hero({ dict }: HeroProps) {
               stroke="currentColor"
               strokeWidth="1.5"
               strokeLinecap="round"
+              strokeLinejoin="round"
             >
-              <path d="M12 5v14M5 12l7 7 7-7" />
+              <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
-          </a>
+          </Link>
 
-          <a href="#contact" className="btn-ghost">
+          <Link
+            href={`/${lang}/africa`}
+            className="btn-ghost"
+          >
             {dict.interest}
-          </a>
+          </Link>
         </div>
       </div>
 

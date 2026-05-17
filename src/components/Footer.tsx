@@ -1,11 +1,21 @@
 'use client'
 
+import Link from 'next/link'
+
 type FooterProps = {
   dict: any
   lang: string
 }
 
 export default function Footer({ dict, lang }: FooterProps) {
+  const footerLinks = [
+    { label: dict.linkInvestment, href: '/invest' },
+    { label: dict.about || (lang === 'en' ? 'ABOUT' : 'NOSOTROS'), href: '/about' },
+    { label: dict.structure || (lang === 'en' ? 'STRUCTURE' : 'ESTRUCTURA'), href: '/structure' },
+    { label: dict.linkThinking, href: '/thoughts' },
+    { label: dict.linkContact, href: '/contact' },
+  ]
+
   return (
     <footer
       style={{
@@ -43,7 +53,7 @@ export default function Footer({ dict, lang }: FooterProps) {
             className="font-label-sm"
             style={{ color: 'var(--color-on-surface-variant)', opacity: 0.6 }}
           >
-            © 2025 GURUMBÉ CAPITAL. {dict.rights}.
+            © 2026 GURUMBÉ CAPITAL. {dict.rights}.
           </p>
         </div>
 
@@ -57,15 +67,10 @@ export default function Footer({ dict, lang }: FooterProps) {
             alignItems: 'center',
           }}
         >
-          {[
-            { label: dict.linkInvestment, href: '#what-we-build' },
-            { label: dict.linkSovereignty, href: '#ethos' },
-            { label: dict.linkThinking, href: `/${lang}/thoughts` },
-            { label: dict.linkContact, href: '#contact' },
-          ].map((link) => (
-            <a
+          {footerLinks.map((link) => (
+            <Link
               key={link.href}
-              href={link.href}
+              href={`/${lang}${link.href}`}
               className="font-label-sm"
               style={{
                 color: 'var(--color-on-surface-variant)',
@@ -85,7 +90,7 @@ export default function Footer({ dict, lang }: FooterProps) {
               }}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
       </div>

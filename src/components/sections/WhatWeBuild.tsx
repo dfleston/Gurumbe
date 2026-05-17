@@ -1,16 +1,19 @@
 'use client'
 
+import Link from 'next/link'
+
 type WhatWeBuildProps = {
   dict: any
+  lang?: string
 }
 
-export default function WhatWeBuild({ dict }: WhatWeBuildProps) {
+export default function WhatWeBuild({ dict, lang = 'en' }: WhatWeBuildProps) {
   const phases = [
     {
       phase: dict.phase1Label,
       title: dict.phase1Title,
       body: dict.phase1Body,
-      hubs: ['Nairobi', 'Accra', 'Windhoek', 'Luanda'],
+      hubs: ['Nairobi', 'Accra'],
       accentColor: 'var(--color-tertiary-container)',
       offset: false,
       icon: (
@@ -23,7 +26,7 @@ export default function WhatWeBuild({ dict }: WhatWeBuildProps) {
       phase: dict.phase2Label,
       title: dict.phase2Title,
       body: dict.phase2Body,
-      hubs: ['Namibia', 'Ghana', 'Kenya'],
+      hubs: ['Namibia', 'Kenya', 'Accra'],
       accentColor: 'var(--color-secondary)',
       offset: true,
       icon: (
@@ -36,7 +39,7 @@ export default function WhatWeBuild({ dict }: WhatWeBuildProps) {
       phase: dict.phase3Label,
       title: dict.phase3Title,
       body: dict.phase3Body,
-      hubs: ['Kigali', 'Cape Town', 'Madrid'],
+      hubs: ['Madrid', 'Nairobi', 'Accra'],
       accentColor: 'var(--color-primary)',
       offset: false,
       icon: (
@@ -49,7 +52,7 @@ export default function WhatWeBuild({ dict }: WhatWeBuildProps) {
       phase: dict.phase4Label,
       title: dict.phase4Title,
       body: dict.phase4Body,
-      hubs: ['Casablanca', 'Nairobi', 'Johannesburg'],
+      hubs: ['Madrid', 'Nairobi', 'Accra'],
       accentColor: 'var(--color-outline)',
       offset: true,
       icon: (
@@ -88,7 +91,7 @@ export default function WhatWeBuild({ dict }: WhatWeBuildProps) {
           }}
           className="phases-grid"
         >
-          {phases.map((phase, i) => (
+          {phases.map((phase) => (
             <div
               key={phase.phase}
               style={{
@@ -101,21 +104,20 @@ export default function WhatWeBuild({ dict }: WhatWeBuildProps) {
               <div
                 style={{
                   backgroundColor: 'var(--color-surface-container-low)',
-                  borderLeft: `4px solid ${phase.accentColor}`,
                   border: '1px solid var(--color-outline-variant)',
                   borderLeftWidth: '4px',
                   borderLeftColor: phase.accentColor,
                   padding: '2.5rem',
                   flexGrow: 1,
                   transition: 'transform 0.3s',
+                  display: 'flex',
+                  flexDirection: 'column',
                 }}
                 onMouseEnter={(e) =>
-                  ((e.currentTarget as HTMLElement).style.transform =
-                    'translateY(-4px)')
+                  ((e.currentTarget as HTMLElement).style.transform = 'translateY(-4px)')
                 }
                 onMouseLeave={(e) =>
-                  ((e.currentTarget as HTMLElement).style.transform =
-                    'translateY(0)')
+                  ((e.currentTarget as HTMLElement).style.transform = 'translateY(0)')
                 }
               >
                 <div
@@ -217,9 +219,9 @@ export default function WhatWeBuild({ dict }: WhatWeBuildProps) {
             </footer>
           </blockquote>
 
-          <a href="#contact" className="btn-ghost">
-            {dict.interest}
-          </a>
+          <Link href={`/${lang}/invest`} className="btn-ghost">
+            {dict.cta || 'Join Waitlist'}
+          </Link>
         </div>
       </div>
 

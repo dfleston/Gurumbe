@@ -51,6 +51,11 @@ export default function Corridor({ dict }: CorridorProps) {
               <p className="font-body-md">
                 {dict.body2}
               </p>
+              {dict.body3 && (
+                <p className="font-body-md">
+                  {dict.body3}
+                </p>
+              )}
             </div>
 
             {/* Sankofa quote block */}
@@ -158,40 +163,94 @@ export default function Corridor({ dict }: CorridorProps) {
                   overflow: 'hidden',
                 }}
               >
-                {/* Architectural line pattern */}
-                <svg
-                  width="100%"
-                  height="100%"
-                  viewBox="0 0 400 500"
-                  style={{ opacity: 0.15 }}
-                  preserveAspectRatio="xMidYMid slice"
-                >
-                  {/* Geometric Andalusian-inspired pattern */}
-                  {Array.from({ length: 12 }).map((_, i) => (
-                    <line
-                      key={`h-${i}`}
-                      x1="0"
-                      y1={i * 45}
-                      x2="400"
-                      y2={i * 45}
-                      stroke="#c8841d"
-                      strokeWidth="0.5"
-                    />
-                  ))}
-                  {Array.from({ length: 10 }).map((_, i) => (
-                    <line
-                      key={`v-${i}`}
-                      x1={i * 45}
-                      y1="0"
-                      x2={i * 45}
-                      y2="500"
-                      stroke="#c8841d"
-                      strokeWidth="0.5"
-                    />
-                  ))}
-                  <circle cx="200" cy="250" r="120" stroke="#c8841d" strokeWidth="0.5" fill="none" />
-                  <circle cx="200" cy="250" r="80" stroke="#b5531d" strokeWidth="0.5" fill="none" />
-                  <circle cx="200" cy="250" r="40" stroke="#046A38" strokeWidth="0.5" fill="none" />
+                {/* Conceptual regional map */}
+                <svg width="100%" height="100%" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+
+                  {/* 1. Background Grid */}
+                  <g style={{ opacity: 0.08 }}>
+                    <line x1="0" y1="0" x2="400" y2="0" stroke="#c8841d" strokeWidth="0.5"></line>
+                    <line x1="0" y1="45" x2="400" y2="45" stroke="#c8841d" strokeWidth="0.5"></line>
+                    <line x1="0" y1="90" x2="400" y2="90" stroke="#c8841d" strokeWidth="0.5"></line>
+                    <line x1="0" y1="135" x2="400" y2="135" stroke="#c8841d" strokeWidth="0.5"></line>
+                    <line x1="0" y1="180" x2="400" y2="180" stroke="#c8841d" strokeWidth="0.5"></line>
+                    <line x1="0" y1="225" x2="400" y2="225" stroke="#c8841d" strokeWidth="0.5"></line>
+                    <line x1="0" y1="270" x2="400" y2="270" stroke="#c8841d" strokeWidth="0.5"></line>
+                    <line x1="0" y1="315" x2="400" y2="315" stroke="#c8841d" strokeWidth="0.5"></line>
+                    <line x1="0" y1="360" x2="400" y2="360" stroke="#c8841d" strokeWidth="0.5"></line>
+                    <line x1="0" y1="405" x2="400" y2="405" stroke="#c8841d" strokeWidth="0.5"></line>
+                    <line x1="0" y1="450" x2="400" y2="450" stroke="#c8841d" strokeWidth="0.5"></line>
+                    <line x1="0" y1="495" x2="400" y2="495" stroke="#c8841d" strokeWidth="0.5"></line>
+                    <line x1="0" y1="0" x2="0" y2="500" stroke="#c8841d" strokeWidth="0.5"></line>
+                    <line x1="45" y1="0" x2="45" y2="500" stroke="#c8841d" strokeWidth="0.5"></line>
+                    <line x1="90" y1="0" x2="90" y2="500" stroke="#c8841d" strokeWidth="0.5"></line>
+                    <line x1="135" y1="0" x2="135" y2="500" stroke="#c8841d" strokeWidth="0.5"></line>
+                    <line x1="180" y1="0" x2="180" y2="500" stroke="#c8841d" strokeWidth="0.5"></line>
+                    <line x1="225" y1="0" x2="225" y2="500" stroke="#c8841d" strokeWidth="0.5"></line>
+                    <line x1="270" y1="0" x2="270" y2="500" stroke="#c8841d" strokeWidth="0.5"></line>
+                    <line x1="315" y1="0" x2="315" y2="500" stroke="#c8841d" strokeWidth="0.5"></line>
+                    <line x1="360" y1="0" x2="360" y2="500" stroke="#c8841d" strokeWidth="0.5"></line>
+                    <line x1="405" y1="0" x2="405" y2="500" stroke="#c8841d" strokeWidth="0.5"></line>
+                  </g>
+
+                  {/* 2. Concentric Circles */}
+                  <g style={{ opacity: 0.12 }}>
+                    <circle cx="200" cy="250" r="120" stroke="#c8841d" strokeWidth="0.5" fill="none"></circle>
+                    <circle cx="200" cy="250" r="80" stroke="#b5531d" strokeWidth="0.5" fill="none"></circle>
+                    <circle cx="200" cy="250" r="40" stroke="#046A38" strokeWidth="0.5" fill="none"></circle>
+                  </g>
+
+                  {/* 3. Coastlines & Geopolitical Borders */}
+                  {/* IBERIA (Spain & Portugal) */}
+                  <g opacity="0.35" stroke="#c8841d" fill="none">
+                    <path d="M 60 70 L 150 70 L 150 115 L 105 160 L 75 155 L 60 115 Z" strokeWidth="1.25"></path>
+                    <path d="M 80 70 L 80 110 L 95 125 L 90 157" strokeWidth="0.75" strokeDasharray="2,2"></path>
+                    <text x="73" y="115" fontSize="5" fill="#c8841d" opacity="0.7" textAnchor="end">PT</text>
+                    <text x="125" y="125" fontSize="5" fill="#c8841d" opacity="0.7">ES</text>
+                  </g>
+
+                  {/* AFRICA CONTINENTAL MASS */}
+                  <g opacity="0.35" stroke="#c8841d" fill="none">
+                    <path d="M 90 220 L 135 175 L 225 175 L 315 220 L 330 260 L 270 400 L 180 445 L 175 285 L 140 260 L 115 255 Z" strokeWidth="1.25"></path>
+                    <path d="M 115 255 Q 150 230, 200 225" strokeWidth="0.75" strokeDasharray="2,2"></path>
+                    <path d="M 140 260 L 145 220" strokeWidth="0.75" strokeDasharray="1.5,1.5"></path>
+                    <path d="M 160 273 L 162 235" strokeWidth="0.75" strokeDasharray="1.5,1.5"></path>
+                    <path d="M 200 225 L 200 310 L 180 445" strokeWidth="0.75" strokeDasharray="2,2"></path>
+                    <path d="M 200 270 L 260 250 L 330 260" strokeWidth="0.75" strokeDasharray="2,2"></path>
+                    <path d="M 200 310 L 270 400" strokeWidth="0.75" strokeDasharray="2,2"></path>
+                    <path d="M 260 250 L 245 300 L 200 310" strokeWidth="0.75" strokeDasharray="1.5,1.5"></path>
+                  </g>
+
+                  {/* 4. Atlantic Archipelagos */}
+                  <g stroke="#c8841d" strokeWidth="0.75" fill="none" opacity="0.4">
+                    <polygon points="15,105 25,100 30,108 18,112"></polygon>
+                    <text x="34" y="107" fontSize="5.5" fill="#c8841d">Azores</text>
+                    <polygon points="30,145 40,142 37,150"></polygon>
+                    <text x="44" y="147" fontSize="5.5" fill="#c8841d">Madeira</text>
+                    <polygon points="65,185 75,181 80,189 70,192"></polygon>
+                    <text x="58" y="201" fontSize="5.5" fill="#c8841d">Canary Is.</text>
+                  </g>
+
+                  {/* 5. KEY NODES */}
+                  {/* MADRID */}
+                  <circle cx="118" cy="105" r="5" fill="rgb(200, 132, 29)"></circle>
+                  <text x="126" y="103" fontSize="8" fill="rgb(200, 132, 29)" fontWeight="bold">MADRID</text>
+
+                  {/* ACCRA */}
+                  <circle cx="151" cy="264" r="5" fill="#b5531d"></circle>
+                  <text x="145" y="261" fontSize="8" fill="#b5531d" textAnchor="end">ACCRA</text>
+
+                  <text x="152" y="284" fontSize="7" fill="#b5531d" opacity="0.6" fontStyle="italic">Gulf of Guinea</text>
+
+                  {/* NAIROBI */}
+                  <circle cx="250" cy="280" r="5" fill="#046A38"></circle>
+                  <text x="258" y="284" fontSize="8" fill="#046A38" fontWeight="bold">NAIROBI</text>
+
+                  {/* 6. Connections */}
+                  <g stroke="#b5531d" strokeWidth="1" fill="none" strokeDasharray="3,3">
+                    <path d="M 118 105 Q 120 190, 151 264"></path>
+                    <path d="M 151 264 Q 200 270, 250 280"></path>
+                    <path d="M 118 105 Q 200 195, 250 280" opacity="0.4"></path>
+                  </g>
                 </svg>
 
                 {/* Label */}
@@ -230,12 +289,10 @@ export default function Corridor({ dict }: CorridorProps) {
                   transition: 'transform 0.5s',
                 }}
                 onMouseEnter={(e) =>
-                  ((e.currentTarget as HTMLElement).style.transform =
-                    'translateY(-6px)')
+                  ((e.currentTarget as HTMLElement).style.transform = 'translateY(-6px)')
                 }
                 onMouseLeave={(e) =>
-                  ((e.currentTarget as HTMLElement).style.transform =
-                    'translateY(0)')
+                  ((e.currentTarget as HTMLElement).style.transform = 'translateY(0)')
                 }
               >
                 <svg
@@ -267,76 +324,11 @@ export default function Corridor({ dict }: CorridorProps) {
             </div>
           </div>
         </div>
-
-        {/* South Arrow Thesis — 2 cards below */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: '1.5rem',
-            marginTop: '5rem',
-          }}
-          className="thesis-cards"
-        >
-          {[
-            {
-              title: dict.thesis1Title,
-              body: dict.thesis1Body,
-              icon: (
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              ),
-            },
-            {
-              title: dict.thesis2Title,
-              body: dict.thesis2Body,
-              icon: (
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              ),
-            },
-          ].map((card) => (
-            <div
-              key={card.title}
-              className="card-surface"
-              style={{
-                borderLeft: '4px solid var(--color-secondary)',
-                borderTop: 'none',
-                borderRight: 'none',
-                borderBottom: 'none',
-                border: '1px solid var(--color-outline-variant)',
-                borderLeftWidth: '4px',
-                borderLeftColor: 'var(--color-secondary)',
-              }}
-            >
-              <div
-                style={{
-                  color: 'var(--color-rule-line)',
-                  marginBottom: '1.5rem',
-                }}
-              >
-                {card.icon}
-              </div>
-              <h4
-                className="font-headline-md"
-                style={{ color: 'var(--color-parchment)', marginBottom: '0.75rem' }}
-              >
-                {card.title}
-              </h4>
-              <p className="font-body-md" style={{ color: 'var(--color-on-surface-variant)' }}>
-                {card.body}
-              </p>
-            </div>
-          ))}
-        </div>
       </div>
 
       <style>{`
         @media (max-width: 767px) {
           .corridor-grid { grid-template-columns: 1fr !important; }
-          .thesis-cards { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </section>

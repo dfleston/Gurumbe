@@ -21,11 +21,17 @@ export default function Navigation({ dict, lang }: NavigationProps) {
   }, [])
 
   const navLinks = [
-    { label: dict.strategy, href: '#corridor' },
-    { label: dict.assets, href: '#what-we-build' },
-    { label: dict.corridor, href: '#why-now' },
-    { label: dict.about, href: '#who' },
+    { label: dict.africa, href: '/africa' },
+    { label: dict.bridge, href: '/bridge' },
+    { label: dict.tokenization, href: '/tokenization' },
+    { label: dict.invest, href: '/invest' },
     { label: dict.thoughts, href: '/thoughts' },
+  ]
+
+  const utilityLinks = [
+    { label: lang === 'en' ? 'About' : 'Nosotros', href: '/about' },
+    { label: lang === 'en' ? 'Structure' : 'Estructura', href: '/structure' },
+    { label: dict.contact || (lang === 'en' ? 'Contact' : 'Contacto'), href: '/contact' },
   ]
 
   // Determine opposite language for the toggle
@@ -82,7 +88,7 @@ export default function Navigation({ dict, lang }: NavigationProps) {
           className="desktop-nav"
         >
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={`/${lang}${link.href}`}
               className="font-label-sm"
@@ -100,7 +106,7 @@ export default function Navigation({ dict, lang }: NavigationProps) {
               }
             >
               {link.label}
-            </a>
+            </Link>
           ))}
 
           {/* Lang Switcher Desktop */}
@@ -125,13 +131,13 @@ export default function Navigation({ dict, lang }: NavigationProps) {
           </Link>
 
           {/* Contact CTA */}
-          <a
-            href={`/${lang}#contact`}
+          <Link
+            href={`/${lang}/contact`}
             className="btn-ghost"
             style={{ padding: '0.5rem 1.25rem' }}
           >
             {dict.contact}
-          </a>
+          </Link>
         </div>
 
         {/* Mobile controls */}
@@ -194,11 +200,11 @@ export default function Navigation({ dict, lang }: NavigationProps) {
             padding: '1.5rem var(--spacing-margin-mobile)',
             display: 'flex',
             flexDirection: 'column',
-            gap: '1.5rem',
+            gap: '1.25rem',
           }}
         >
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={`/${lang}${link.href}`}
               className="font-label-sm"
@@ -209,16 +215,25 @@ export default function Navigation({ dict, lang }: NavigationProps) {
               }}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
-          <a
-            href={`/${lang}#contact`}
-            className="btn-ghost"
-            onClick={() => setMenuOpen(false)}
-            style={{ textAlign: 'center' }}
-          >
-            {dict.contact}
-          </a>
+          
+          <div style={{ height: '1px', backgroundColor: 'var(--color-rule-line)', margin: '0.5rem 0' }} />
+          
+          {utilityLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={`/${lang}${link.href}`}
+              className="font-label-sm"
+              onClick={() => setMenuOpen(false)}
+              style={{
+                color: 'var(--color-on-surface-variant)',
+                textDecoration: 'none',
+              }}
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
       )}
 

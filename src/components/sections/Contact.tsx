@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-type InquiryType = 'investment' | 'partnership' | 'media'
+type InquiryType = 'investment' | 'partnership' | 'venture' | 'media'
 
 type ContactProps = {
   dict: any
@@ -37,6 +37,7 @@ export default function Contact({ dict }: ContactProps) {
   const inquiryTypes: { value: InquiryType; label: string }[] = [
     { value: 'investment', label: dict.inquiryInvestment },
     { value: 'partnership', label: dict.inquiryPartnership },
+    { value: 'venture', label: dict.inquiryVenture || 'VENTURE' },
     { value: 'media', label: dict.inquiryMedia },
   ]
 
@@ -238,11 +239,11 @@ export default function Contact({ dict }: ContactProps) {
                   <label className="font-label-sm" style={{ color: 'var(--color-on-surface-variant)', display: 'block', marginBottom: '1.25rem' }}>
                     {dict.formInquiryType}
                   </label>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                     {inquiryTypes.map(({ value, label }) => (
                       <label
                         key={value}
-                        style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}
+                        style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', cursor: 'pointer' }}
                       >
                         <input
                           type="radio"
@@ -252,15 +253,18 @@ export default function Contact({ dict }: ContactProps) {
                           onChange={() => setForm((p) => ({ ...p, type: value }))}
                           style={{
                             accentColor: 'var(--color-tertiary-container)',
-                            width: '1rem',
-                            height: '1rem',
+                            width: '1.1rem',
+                            height: '1.1rem',
+                            marginTop: '0.2rem',
+                            flexShrink: 0,
                           }}
                         />
                         <span
-                          className="font-label-sm"
+                          className="font-body-md"
                           style={{
                             color: form.type === value ? 'var(--color-tertiary-container)' : 'var(--color-on-surface-variant)',
                             transition: 'color 0.2s',
+                            lineHeight: '1.4',
                           }}
                         >
                           {label}
