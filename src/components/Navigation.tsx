@@ -1,112 +1,191 @@
-import { motion } from "motion/react";
-import { ArrowRight, Menu, X } from "lucide-react";
-import { useState } from "react";
+'use client'
 
-export function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+
+const navLinks = [
+  { label: 'STRATEGY · ESTRATEGIA', href: '#corridor' },
+  { label: 'ASSETS · ACTIVOS', href: '#what-we-build' },
+  { label: 'CORRIDOR · CORREDOR', href: '#why-now' },
+  { label: 'ABOUT · NOSOTROS', href: '#who' },
+]
+
+export default function Navigation() {
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant">
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <motion.div 
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="font-display text-xl tracking-[0.2em] font-semibold"
+    <nav
+      style={{
+        position: 'fixed',
+        top: 0,
+        width: '100%',
+        zIndex: 50,
+        borderBottom: '1px solid var(--color-rule-line)',
+        backdropFilter: 'blur(12px)',
+        backgroundColor: scrolled
+          ? 'rgba(15, 12, 9, 0.95)'
+          : 'rgba(15, 12, 9, 0.8)',
+        transition: 'background-color 0.3s',
+      }}
+    >
+      <div
+        className="container-max"
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          height: '5rem',
+        }}
+      >
+        {/* Logo */}
+        <Link
+          href="/"
+          style={{
+            fontFamily: '"Cormorant Garamond", serif',
+            fontSize: '1.25rem',
+            fontWeight: 600,
+            letterSpacing: '0.15em',
+            color: 'var(--color-parchment)',
+            textDecoration: 'none',
+            textTransform: 'uppercase',
+          }}
         >
           GURUMBÉ CAPITAL
-        </motion.div>
+        </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-12">
-          {["STRATEGY", "ASSETS", "CORRIDOR", "ABOUT"].map((item) => (
-            <a 
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="font-mono text-[10px] tracking-[0.2em] text-on-background/60 hover:text-primary transition-colors"
+        {/* Desktop nav */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '2.5rem',
+          }}
+          className="desktop-nav"
+        >
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="font-label-sm"
+              style={{
+                color: 'var(--color-on-surface-variant)',
+                textDecoration: 'none',
+                transition: 'color 0.3s',
+              }}
+              onMouseEnter={(e) =>
+                ((e.target as HTMLElement).style.color = 'var(--color-primary)')
+              }
+              onMouseLeave={(e) =>
+                ((e.target as HTMLElement).style.color =
+                  'var(--color-on-surface-variant)')
+              }
             >
-              {item}
+              {link.label}
             </a>
           ))}
-          <a href="#contact" className="btn-outline !py-2 !px-6">
-            CONTACT
+
+          {/* Contact CTA */}
+          <a
+            href="#contact"
+            className="btn-ghost"
+            style={{ padding: '0.5rem 1.25rem' }}
+          >
+            CONTACT · CONTACTO
           </a>
         </div>
 
-        {/* Mobile Toggle */}
-        <button 
-          className="md:hidden text-primary"
-          onClick={() => setIsOpen(!isOpen)}
+        {/* Mobile hamburger */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+          style={{
+            display: 'none',
+            background: 'none',
+            border: 'none',
+            color: 'var(--color-parchment)',
+            cursor: 'pointer',
+            padding: '0.5rem',
+          }}
+          className="mobile-menu-btn"
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            {menuOpen ? (
+              <>
+                <path d="M18 6L6 18" strokeLinecap="round" />
+                <path d="M6 6l12 12" strokeLinecap="round" />
+              </>
+            ) : (
+              <>
+                <path d="M4 6h16" strokeLinecap="round" />
+                <path d="M4 12h16" strokeLinecap="round" />
+                <path d="M4 18h16" strokeLinecap="round" />
+              </>
+            )}
+          </svg>
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="md:hidden bg-background border-b border-outline-variant p-8"
+      {/* Mobile menu drawer */}
+      {menuOpen && (
+        <div
+          style={{
+            backgroundColor: 'var(--color-surface-container-low)',
+            borderTop: '1px solid var(--color-rule-line)',
+            padding: '1.5rem var(--spacing-margin-mobile)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1.5rem',
+          }}
         >
-          <div className="flex flex-col space-y-6">
-            {["STRATEGY", "ASSETS", "CORRIDOR", "ABOUT"].map((item) => (
-              <a 
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="font-mono text-xs tracking-[0.2em] text-on-background/60"
-                onClick={() => setIsOpen(false)}
-              >
-                {item}
-              </a>
-            ))}
-            <a 
-              href="#contact" 
-              className="btn-outline text-center"
-              onClick={() => setIsOpen(false)}
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="font-label-sm"
+              onClick={() => setMenuOpen(false)}
+              style={{
+                color: 'var(--color-on-surface-variant)',
+                textDecoration: 'none',
+              }}
             >
-              CONTACT
+              {link.label}
             </a>
-          </div>
-        </motion.div>
+          ))}
+          <a
+            href="#contact"
+            className="btn-ghost"
+            onClick={() => setMenuOpen(false)}
+            style={{ textAlign: 'center' }}
+          >
+            CONTACT · CONTACTO
+          </a>
+        </div>
       )}
-    </nav>
-  );
-}
 
-export function Footer() {
-  return (
-    <footer className="bg-surface-dim border-t border-outline-variant py-20">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
-          <div className="md:col-span-4">
-            <h3 className="font-display text-2xl mb-4 tracking-[0.1em]">GURUMBÉ CAPITAL</h3>
-            <p className="font-serif text-on-background/60 max-w-xs">
-              Bridging value across the South-to-South corridor. Culturally rooted, technically savvy, and structurally integer.
-            </p>
-          </div>
-          <div className="md:col-span-8 flex flex-wrap gap-8 md:justify-end items-start md:mt-2">
-            {[
-              "INVESTMENT · INVERSIÓN",
-              "SOVEREIGNTY · SOBERANÍA",
-              "LEGAL · LEGAL",
-              "PRIVACY · PRIVACIDAD"
-            ].map(link => (
-              <a 
-                key={link} 
-                href="#" 
-                className="font-mono text-[10px] tracking-[0.1em] text-on-background/40 hover:text-primary transition-colors"
-              >
-                {link}
-              </a>
-            ))}
-          </div>
-        </div>
-        <div className="border-t border-outline-variant/30 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="font-mono text-[9px] tracking-widest text-on-background/30 uppercase">
-            © 2024 GURUMBÉ CAPITAL. ALL RIGHTS RESERVED.
-          </p>
-        </div>
-      </div>
-    </footer>
-  );
+      <style>{`
+        @media (min-width: 768px) {
+          .mobile-menu-btn { display: none !important; }
+          .desktop-nav { display: flex !important; }
+        }
+        @media (max-width: 767px) {
+          .mobile-menu-btn { display: block !important; }
+          .desktop-nav { display: none !important; }
+        }
+      `}</style>
+    </nav>
+  )
 }

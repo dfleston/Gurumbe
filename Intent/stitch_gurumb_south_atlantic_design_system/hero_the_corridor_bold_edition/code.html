@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gurumbé Capital - The Corridor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&amp;family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "primary": "#ffb95d",
+                "on-tertiary-container": "#4e1b00",
+                "inverse-primary": "#855400",
+                "tertiary-container": "#e1743c",
+                "rule-line": "rgba(200, 132, 29, 0.16)",
+                "on-secondary-fixed-variant": "#23501e",
+                "on-secondary-fixed": "#002201",
+                "primary-fixed-dim": "#ffb95d",
+                "on-secondary-container": "#90c283",
+                "error": "#ffb4ab",
+                "on-background": "#ebe2cb",
+                "on-primary-fixed-variant": "#653e00",
+                "surface-container-highest": "#393525",
+                "outline": "#9f8e7c",
+                "secondary-fixed": "#bcf0ae",
+                "secondary": "#a1d494",
+                "tertiary": "#ffb694",
+                "outline-variant": "#524436",
+                "on-surface": "#ebe2cb",
+                "on-surface-variant": "#d7c3b0",
+                "primary-container": "#c8841d",
+                "surface-bright": "#3e3929",
+                "on-tertiary-fixed": "#351000",
+                "surface-tint": "#ffb95d",
+                "on-tertiary": "#571f00",
+                "on-primary-fixed": "#2a1700",
+                "surface-container-high": "#2e2a1b",
+                "tertiary-fixed-dim": "#ffb694",
+                "on-tertiary-fixed-variant": "#7b2f00",
+                "tertiary-fixed": "#ffdbcc",
+                "primary-fixed": "#ffddb7",
+                "error-container": "#93000a",
+                "surface-dim": "#171306",
+                "secondary-fixed-dim": "#a1d494",
+                "surface-container-lowest": "#110e03",
+                "surface-main": "#0f0c09",
+                "on-primary": "#462a00",
+                "inverse-surface": "#ebe2cb",
+                "on-secondary": "#0a3909",
+                "background": "#171306",
+                "inverse-on-surface": "#353021",
+                "secondary-container": "#23501e",
+                "on-primary-container": "#402600",
+                "on-error-container": "#ffdad6",
+                "surface-container-low": "#1f1b0d",
+                "surface-variant": "#393525",
+                "on-error": "#690005",
+                "surface": "#171306",
+                "surface-container": "#231f11",
+                "deep-green": "#2d5a27"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "unit": "8px",
+                "margin-desktop": "64px",
+                "gutter": "24px",
+                "container-max": "1280px",
+                "margin-mobile": "16px"
+        },
+        "fontFamily": {
+                "label-lg": [
+                        "DM Mono"
+                ],
+                "display-mobile": [
+                        "ebGaramond"
+                ],
+                "label-sm": [
+                        "spaceMono"
+                ],
+                "body-lg": [
+                        "Cormorant Garamond"
+                ],
+                "display": [
+                        "Cormorant Garamond"
+                ],
+                "headline-md": [
+                        "Cormorant Garamond"
+                ],
+                "headline-lg": [
+                        "Cormorant Garamond"
+                ],
+                "body-md": [
+                        "ebGaramond"
+                ]
+        },
+        "fontSize": {
+                "label-lg": [
+                        "0.85rem",
+                        {
+                                "lineHeight": "1.5",
+                                "letterSpacing": "0.25em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "display-mobile": [
+                        "3rem",
+                        {
+                                "lineHeight": "1.1",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-sm": [
+                        "0.75rem",
+                        {
+                                "lineHeight": "1.4",
+                                "letterSpacing": "0.15em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "1.25rem",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "display": [
+                        "4.2rem",
+                        {
+                                "lineHeight": "1.05",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-md": [
+                        "2rem",
+                        {
+                                "lineHeight": "1.3",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg": [
+                        "2.8rem",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "1rem",
+                        {
+                                "lineHeight": "1.5",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body {
+            background-color: #171306;
+            color: #ebe2cb;
+            position: relative;
+        }
+        
+        /* Subtle Concentric Arcs */
+        .bg-arc {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(200, 132, 29, 0.05);
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="antialiased font-body-md text-body-md overflow-x-hidden bg-background text-on-background">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-background/90 dark:bg-background/90 border-b border-rule-line backdrop-blur-md">
+<div class="flex justify-between items-center px-margin-desktop h-20 w-full max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md tracking-widest text-on-background dark:text-on-background">
+                GURUMBÉ CAPITAL
+            </div>
+<div class="hidden md:flex space-x-8 items-center">
+<a class="text-on-surface-variant font-label-lg text-label-lg hover:text-primary transition-colors duration-300" href="#">STRATEGY · ESTRATEGIA</a>
+<a class="text-on-surface-variant font-label-lg text-label-lg hover:text-primary transition-colors duration-300" href="#">ASSETS · ACTIVOS</a>
+<a class="text-primary font-bold font-label-lg text-label-lg border-b border-primary pb-1 hover:text-primary transition-colors duration-300 transform hover:-translate-y-[2px]" href="#">CORRIDOR · CORREDOR</a>
+<a class="text-on-surface-variant font-label-lg text-label-lg hover:text-primary transition-colors duration-300" href="#">ABOUT · NOSOTROS</a>
+</div>
+<div class="hidden md:flex items-center">
+<a class="font-label-lg text-label-lg text-primary dark:text-primary border border-outline-variant px-6 py-3 hover:border-primary hover:bg-primary/10 transition-all duration-300 hover:-translate-y-1" href="#">
+                    CONTACT · CONTACTO
+                </a>
+</div>
+<!-- Mobile Menu Toggle (Decorative) -->
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-surface-main">
+<!-- Cinematic Background Pattern (Dark Charcoal feel) -->
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-surface-main z-10"></div>
+<div class="absolute inset-0 opacity-60 z-0 bg-cover bg-center mix-blend-overlay" data-alt="A cinematic, wide-angle shot of a dark, abstract architectural space, evoking deep charcoal tones and subtle earthen textures. The lighting is moody and low-key, illuminating sharp geometric lines and smooth, monolithic surfaces. A subtle golden hour glow faintly grazes one edge, hinting at an ancient, foundational structure. The mood is profound, quiet, and deeply institutional, fitting a high-end editorial aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCU1m14na0y_a6MG8H9CyoFx3uK8vyE8C_jOveIxeoyod0vvjFlC4amejPtxgxX5P6VbmMNN1zaBjRYZrgnsf5_Vp6pCVncX2-hWebKRHQ1iKiKnEFNL8XqSLgBSnyJgkJNMhS3Uu4r5l0SF3FW74aSWlNLmoJS5vZYk_mbqG-4xXjOCYp6JmHFwddIwMCRzvarVRGFiNJpJ-jvIqAqavKPDr4LFD5ONbQdNcZRfMMYFGO777VSxcoLbhUo7fzia_5Py3B_ngmrmUc');"></div>
+<!-- Concentric Arc Detail -->
+<div class="bg-arc w-[800px] h-[800px] -left-[200px] top-[10%] border-deep-green/10"></div>
+<div class="bg-arc w-[1000px] h-[1000px] -left-[300px] top-[5%] border-primary/10"></div>
+<div class="relative z-20 max-w-container-max mx-auto px-margin-desktop w-full grid grid-cols-12 gap-gutter">
+<div class="col-span-12 md:col-span-8 flex flex-col justify-center">
+<span class="font-label-lg text-label-lg text-primary mb-6 block tracking-[0.3em]">A SOVEREIGN STORY</span>
+<h1 class="font-display text-display text-on-background mb-8 leading-tight">
+                    The corridor<br/>was always there.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl border-l-2 border-primary pl-6 py-2">
+                    Gurumbé Capital is a thematic investment vehicle bridging Spain and the Global South. We unearth value along ancient routes of exchange, applying institutional rigor to high-growth, sovereign frontiers.
+                </p>
+<div class="mt-12">
+<a class="inline-flex items-center space-x-3 text-primary hover:text-on-background transition-colors duration-300 group" href="#corridor">
+<span class="font-label-lg text-label-lg">ENTER THE CORRIDOR</span>
+<span class="material-symbols-outlined transform group-hover:translate-y-1 transition-transform" style="font-variation-settings: 'FILL' 0;">arrow_downward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- The Corridor Section -->
+<section class="py-24 relative bg-surface" id="corridor">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-12 gap-gutter items-center">
+<!-- Left Text Content (5/7 Split) -->
+<div class="col-span-12 md:col-span-5 flex flex-col justify-center order-2 md:order-1 relative z-10">
+<span class="font-label-lg text-label-lg text-primary mb-8 block">THE FOUNDATION · EL CIMIENTO</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-8">
+                    Rooted in rhythm.<br/>Built for scale.
+                </h2>
+<div class="space-y-6 text-on-surface-variant font-body-md text-body-md">
+<p>
+                        The "Gurumbé" was a profound drum rhythm, echoing through the 16th-century streets of Seville, carried by Bantu populations. It was the pulse of early globalization, a testament to resilience and an indelible link between continents.
+                    </p>
+<p>
+                        Today, that historical corridor remains open. It is no longer defined by the tragedies of the past, but by the strategic flow of capital, innovation, and sovereign wealth between Iberia and the dynamic economies of the Global South.
+                    </p>
+</div>
+<div class="mt-12 p-8 border border-rule-line bg-surface-container-low hover:-translate-y-1 hover:border-primary/50 transition-all duration-300 relative group shadow-2xl">
+<div class="absolute top-4 right-4 text-rule-line group-hover:text-primary transition-colors duration-500">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 0;">history_edu</span>
+</div>
+<blockquote class="font-headline-md text-headline-md text-on-background italic border-l-4 border-primary pl-6">
+                        "To go back and get it is not a taboo."
+                    </blockquote>
+<p class="font-label-lg text-label-lg text-primary mt-4 tracking-widest">— THE SANKOFA PRINCIPLE</p>
+</div>
+</div>
+<!-- Right Visual Content (7/12 Split) -->
+<div class="col-span-12 md:col-span-7 order-1 md:order-2 mb-16 md:mb-0 relative">
+<!-- Asymmetric overlapping container -->
+<div class="relative w-full h-[600px] flex items-center justify-center">
+<!-- Base background element -->
+<div class="absolute inset-0 bg-surface-container-low border border-rule-line ml-8 mt-8"></div>
+<!-- Image container -->
+<div class="relative z-10 w-full h-full p-4">
+<div class="w-full h-full bg-cover bg-center grayscale hover:grayscale-0 transition-all duration-700 opacity-80" data-alt="A striking, high-contrast black and white photograph of historic Andalusian architecture blending seamlessly with subtle African geometric patterns cast in shadow. The lighting is dramatic, highlighting the textural interplay between smooth stone and intricate wrought iron. The composition feels ancient yet structurally sound, embodying a profound sense of shared history and institutional permanence in a refined, dark editorial style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDY8HlGKzTYLCpODzFaWsmUWQCWh9HvUL9IRBjAV4QLMPyQSUHu6zHyBqU7Wmh2Coc7ZWCsVh8weU5Xsy3wjF97W4Jxp-mS-Qy-HAuTPUQBnZPcE4txN-24EfeaS7GuezA2GveKSa3YVhc8lMLlnATQk0Zrh2UUa5pyfbG2rG8YIKrU2Fhgiua9e4ubWIGF-lK3HtJAIMZE7zXdJipglxPXTshZrRcTovQa0JN24aX9iewU8PsF2SR4XjDHB1ZWeBDCCQjDZvdaaaw');">
+</div>
+</div>
+<!-- Floating Adinkra Symbol Card -->
+<div class="absolute -bottom-10 -left-10 bg-surface-container p-8 border border-rule-line shadow-2xl z-20 flex flex-col items-center justify-center w-48 h-48 hover:-translate-y-2 transition-transform duration-500">
+<!-- Abstract Sankofa Representation using generic SVG for reliable rendering -->
+<svg class="w-16 h-16 text-primary mb-4 stroke-current" fill="none" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="font-label-lg text-label-lg text-on-surface tracking-widest text-center">SANKOFA</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- The South Arrow Thesis -->
+<section class="py-24 bg-surface-main border-t border-rule-line relative overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-12 gap-gutter">
+<div class="col-span-12 md:col-span-4 mb-12 md:mb-0">
+<span class="font-label-lg text-label-lg text-primary mb-6 block tracking-[0.3em]">THESIS · TESIS</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6">The South Arrow</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 border-l-2 border-deep-green pl-4">
+                    Capital naturally seeks efficiency, but structural alpha lies in cultural fluency. We target the emergent sovereignty of Southern economies.
+                </p>
+<a class="font-label-lg text-label-lg text-on-background border border-outline-variant px-6 py-3 hover:border-primary hover:bg-primary/10 transition-all duration-300 inline-block hover:-translate-y-1" href="#">
+                    READ MANIFESTO
+                </a>
+</div>
+<div class="col-span-12 md:col-span-8">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+<!-- Glassmorphism/Tactile Card 1 -->
+<div class="bg-surface-container border border-rule-line p-8 hover:-translate-y-1 hover:border-primary/40 transition-all duration-300 relative group border-b-4 border-b-deep-green/30 hover:border-b-deep-green">
+<div class="absolute top-8 right-8">
+<svg class="w-8 h-8 text-rule-line group-hover:text-primary transition-colors duration-300 stroke-current" fill="none" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-background mb-4 mt-12">Sovereign Growth</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Investing beyond charity tropes. We back high-growth, tech-enabled infrastructure that drives genuine economic independence.
+                        </p>
+</div>
+<!-- Glassmorphism/Tactile Card 2 -->
+<div class="bg-surface-container border border-rule-line p-8 hover:-translate-y-1 hover:border-primary/40 transition-all duration-300 relative group border-b-4 border-b-deep-green/30 hover:border-b-deep-green">
+<div class="absolute top-8 right-8">
+<!-- Ese Ne Tekrema representation -->
+<svg class="w-8 h-8 text-rule-line group-hover:text-primary transition-colors duration-300 stroke-current" fill="none" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-background mb-4 mt-12">Cultural Fluency</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Relationships built on deep historical context. Our edge is the shared rhythm of the Iberian-African connection.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-16 bg-surface dark:bg-surface border-t border-rule-line">
+<div class="grid grid-cols-12 gap-gutter px-margin-desktop max-w-container-max mx-auto">
+<div class="col-span-12 md:col-span-4 mb-8 md:mb-0">
+<div class="font-headline-md text-headline-md text-on-surface mb-4">GURUMBÉ CAPITAL</div>
+<div class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-widest mt-12">
+                    © 2024 GURUMBÉ CAPITAL. ALL RIGHTS RESERVED.
+                </div>
+</div>
+<div class="col-span-12 md:col-span-8 flex flex-wrap gap-8 md:justify-end items-end">
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary hover:translate-y-[-4px] transition-all duration-300" href="#">INVESTMENT · INVERSIÓN</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary hover:translate-y-[-4px] transition-all duration-300" href="#">SOVEREIGNTY · SOBERANÍA</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary hover:translate-y-[-4px] transition-all duration-300" href="#">LEGAL · LEGAL</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary hover:translate-y-[-4px] transition-all duration-300" href="#">PRIVACY · PRIVACIDAD</a>
+</div>
+</div>
+</footer>
+</body></html>
