@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import './globals.css'
+import '../globals.css'
 
 export const metadata: Metadata = {
   title: 'Gurumbé Capital — South-to-South Financial Architecture',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     'fractional asset issuance',
     'corridor',
   ],
-  authors: [{ name: 'David F. Leston' }],
+  authors: [{ name: 'Daniel Fernandez Leston' }],
   openGraph: {
     title: 'Gurumbé Capital — South-to-South Financial Architecture',
     description:
@@ -25,13 +25,23 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
+import { i18n } from '@/i18n/config'
+
+export async function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ lang: locale }))
+}
+
+export default async function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode
+  params: Promise<{ lang: string }>
 }) {
+  const { lang } = await params
+
   return (
-    <html lang="en">
+    <html lang={lang}>
       <body>{children}</body>
     </html>
   )

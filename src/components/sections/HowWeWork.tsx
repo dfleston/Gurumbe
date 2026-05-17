@@ -1,13 +1,17 @@
 'use client'
 
-const properties = [
-  { label: 'Composability', desc: 'Multiple financial instruments integrated into a single programmable wrapper.' },
-  { label: 'Finality', desc: 'Real-time peer-to-peer settlement. No clearing-house counterparty risk.' },
-  { label: 'Fractionalization', desc: 'Institutional-scale assets broken into accessible tranches for any allocator.' },
-  { label: 'Programmability', desc: 'Automated yields, compliance, and distribution through smart legal architecture.' },
-]
+type HowWeWorkProps = {
+  dict: any
+}
 
-export default function HowWeWork() {
+export default function HowWeWork({ dict }: HowWeWorkProps) {
+  const properties = [
+    { label: dict.prop1Label, desc: dict.prop1Desc },
+    { label: dict.prop2Label, desc: dict.prop2Desc },
+    { label: dict.prop3Label, desc: dict.prop3Desc },
+    { label: dict.prop4Label, desc: dict.prop4Desc },
+  ]
+
   return (
     <section
       id="how-we-work"
@@ -20,14 +24,12 @@ export default function HowWeWork() {
       <div className="container-max">
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '5rem', maxWidth: '48rem', margin: '0 auto 5rem' }}>
-          <span className="section-label">THE ARCHITECTURE · LA ARQUITECTURA</span>
+          <span className="section-label">{dict.label}</span>
           <h2 className="font-display" style={{ color: 'var(--color-parchment)' }}>
-            Structural Integrity.
+            {dict.headline}
           </h2>
           <p className="font-body-lg" style={{ color: 'var(--color-on-surface-variant)', marginTop: '1.5rem' }}>
-            Our methodology rejects arbitrary complexity in favor of resilient,
-            institutional-grade architecture. We bridge the South-to-South
-            corridor through a regulated holding structure and purpose-built SPVs.
+            {dict.body}
           </p>
         </div>
 
@@ -49,14 +51,13 @@ export default function HowWeWork() {
           >
             <div>
               <h3 className="font-headline-md" style={{ color: 'var(--color-parchment)', marginBottom: '0.5rem' }}>
-                Gurumbé Holding Co.
+                {dict.holdingTitle}
               </h3>
               <p className="font-label-sm" style={{ color: 'var(--color-primary)', marginBottom: '1.25rem' }}>
-                SPAIN JURISDICTION
+                {dict.holdingLabel}
               </p>
               <p className="font-body-md" style={{ color: 'var(--color-on-surface-variant)' }}>
-                The sovereign anchor. Regulated entity providing governance,
-                oversight, and strategic capital allocation across the corridor.
+                {dict.holdingBody}
               </p>
             </div>
             <div style={{ marginTop: '2rem' }}>
@@ -77,8 +78,8 @@ export default function HowWeWork() {
             }}
             className="connector"
           >
-            <span className="font-label-sm" style={{ color: 'var(--color-primary)', textAlign: 'center' }}>
-              CAPITAL<br />FLOW
+            <span className="font-label-sm" style={{ color: 'var(--color-primary)', textAlign: 'center', whiteSpace: 'pre-line' }}>
+              {dict.flowLabel}
             </span>
             <div
               style={{
@@ -111,15 +112,13 @@ export default function HowWeWork() {
           >
             <div>
               <h3 className="font-headline-md" style={{ color: 'var(--color-parchment)', marginBottom: '0.5rem' }}>
-                Asset SPVs
+                {dict.spvTitle}
               </h3>
               <p className="font-label-sm" style={{ color: 'var(--color-tertiary-container)', marginBottom: '1.25rem' }}>
-                LOCAL JURISDICTIONS
+                {dict.spvLabel}
               </p>
               <p className="font-body-md" style={{ color: 'var(--color-on-surface-variant)' }}>
-                Ring-fenced special purpose vehicles executing tactical asset
-                acquisition in primary markets — Real Estate, Energy, Ventures.
-                Each SPV is a separate legal entity; risks completely isolated.
+                {dict.spvBody}
               </p>
             </div>
             <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem' }}>
@@ -154,10 +153,10 @@ export default function HowWeWork() {
           >
             <div style={{ flex: '1 1 20rem' }}>
               <h3 className="font-headline-lg" style={{ color: 'var(--color-parchment)', marginBottom: '0.5rem' }}>
-                The Binary Transition
+                {dict.binaryTitle}
               </h3>
               <p className="font-label-sm" style={{ color: 'var(--color-primary)' }}>
-                PROGRAMMABLE COMPLIANCE ARCHITECTURE
+                {dict.binaryLabel}
               </p>
             </div>
             <div
@@ -169,11 +168,7 @@ export default function HowWeWork() {
               className="binary-body"
             >
               <p className="font-body-lg" style={{ color: 'var(--color-on-surface-variant)', marginBottom: '1.5rem' }}>
-                Real-world assets are anchored physically but mobilized
-                digitally. Our architecture translates tangible, illiquid assets
-                into fractionalized security tokens — governed by strict
-                compliance frameworks and local legal registries. Not an upgrade.
-                A structural transition: from unit to unicity.
+                {dict.binaryBody}
               </p>
 
               <div

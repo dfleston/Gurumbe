@@ -79,7 +79,7 @@ The plan shows **Kwame Adebayo** and **Elena Silva** as named team members with 
 This needs to be resolved before launch. There are three options:
 
 1. **Replace with real people** (the right answer eventually)
-2. **Use David F. Leston only** with a note about advisors being added — honest and clean
+2. **Use Daniel Fernandez Leston only** with a note about advisors being added — honest and clean
 3. **Use typographic treatments instead of portraits** — the website structure doc actually suggests this as a valid approach: *"If photography is not available: typographic treatment — names large, roles small"*
 
 Option 3 is underrated. For a brand that positions itself as architecturally rigorous and non-conventional, a typographic "people" section could be more distinctive than stock-photo-style portrait cards.

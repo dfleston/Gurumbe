@@ -1,6 +1,10 @@
 'use client'
 
-export default function Who() {
+type WhoProps = {
+  dict: any
+}
+
+export default function Who({ dict }: WhoProps) {
   return (
     <section
       id="who"
@@ -13,9 +17,9 @@ export default function Who() {
       <div className="container-max">
         {/* Section header */}
         <div style={{ marginBottom: '5rem' }}>
-          <span className="section-label">WHO IS BEHIND THIS · QUIÉN ESTÁ DETRÁS</span>
+          <span className="section-label">{dict.label}</span>
           <h2 className="font-display" style={{ color: 'var(--color-parchment)' }}>
-            The Founder.
+            {dict.headline}
           </h2>
         </div>
 
@@ -48,22 +52,22 @@ export default function Who() {
                   marginBottom: '1rem',
                 }}
               >
-                David F.<br />Leston
+                Daniel Fernandez<br />Leston
               </h3>
               <p
                 className="font-label-lg"
                 style={{ color: 'var(--color-primary)', letterSpacing: '0.2em' }}
               >
-                FOUNDER & STRATEGIST
+                {dict.role}
               </p>
             </div>
 
             {/* Credential tags */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               {[
-                'African Development Bank (AfDB) — Monetary Infrastructure',
-                'European EBSI (Distributed Architecture) — Spain Ministry of Science',
-                'Galician Roots · African Ground · Atlantic Perspective',
+                dict.credential1,
+                dict.credential2,
+                dict.credential3,
               ].map((item) => (
                 <div
                   key={item}
@@ -104,11 +108,7 @@ export default function Who() {
                 lineHeight: 1.7,
               }}
             >
-              David F. Leston is not an analyst who discovered Africa. He is
-              someone built at the intersection of the corridor itself — Galician
-              roots, operational presence across West and East Africa, and deep
-              engagement with the institutional architectures that govern capital
-              at the supranational level.
+              {dict.body1}
             </p>
             <p
               className="font-body-lg"
@@ -118,11 +118,7 @@ export default function Who() {
                 lineHeight: 1.7,
               }}
             >
-              His work with the African Development Bank on monetary
-              infrastructure design and with Spain&apos;s Ministry of Science on
-              programmable compliance systems positions him uniquely to build
-              what this corridor has always needed: not another fund, but a
-              sovereign financial architecture with cultural legitimacy.
+              {dict.body2}
             </p>
             <p
               className="font-body-lg"
@@ -131,11 +127,7 @@ export default function Who() {
                 lineHeight: 1.7,
               }}
             >
-              He operates from the conviction that the Gurumbé rhythm — the
-              African drum that gave birth to Flamenco in Seville — is not a
-              metaphor. It is a structural proof of concept: that deep cultural
-              synthesis creates durable, high-yield value. That is the thesis.
-              That is the fund.
+              {dict.body3}
             </p>
 
             {/* Substack link */}
@@ -154,15 +146,15 @@ export default function Who() {
                   transition: 'color 0.3s',
                 }}
                 onMouseEnter={(e) =>
-                  ((e.currentTarget as HTMLElement).style.color =
-                    'var(--color-parchment)')
+                ((e.currentTarget as HTMLElement).style.color =
+                  'var(--color-parchment)')
                 }
                 onMouseLeave={(e) =>
-                  ((e.currentTarget as HTMLElement).style.color =
-                    'var(--color-primary)')
+                ((e.currentTarget as HTMLElement).style.color =
+                  'var(--color-primary)')
                 }
               >
-                READ ESSAYS & UPDATES
+                {dict.substackLink}
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -189,21 +181,18 @@ export default function Who() {
               className="font-label-sm"
               style={{ color: 'var(--color-primary)', marginBottom: '0.5rem' }}
             >
-              PARTNERS & ADVISORS
+              {dict.advisoryLabel}
             </p>
             <p
               className="font-headline-md"
               style={{ color: 'var(--color-parchment)', marginBottom: '0.75rem' }}
             >
-              The Consortium
+              {dict.advisoryTitle}
             </p>
             <p className="font-body-md" style={{ color: 'var(--color-on-surface-variant)', maxWidth: '36rem' }}>
-              Legal counsel across Spain and African jurisdictions, TokenCity
-              (regulated EU tokenization platform), cultural anchor Miguel Ángel
-              Rosales — filmmaker of{' '}
-              <em>Gurumbé: Afro-Andalusian Memories</em> — and institutional
-              engagement with the African Development Bank. Formal introductions
-              forthcoming.
+              {dict.advisoryBodyStart}
+              <em>{dict.advisoryBodyEm}</em>
+              {dict.advisoryBodyEnd}
             </p>
           </div>
           <div
@@ -216,7 +205,7 @@ export default function Who() {
           />
           <div style={{ flexShrink: 0 }}>
             <a href="#contact" className="btn-ghost">
-              INITIATE DIALOGUE
+              {dict.initiateDialogue}
             </a>
           </div>
         </div>

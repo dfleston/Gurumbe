@@ -1,6 +1,10 @@
 'use client'
 
-export default function Corridor() {
+type CorridorProps = {
+  dict: any
+}
+
+export default function Corridor({ dict }: CorridorProps) {
   return (
     <section
       id="corridor"
@@ -23,13 +27,13 @@ export default function Corridor() {
         >
           {/* Left — text */}
           <div>
-            <span className="section-label">THE FOUNDATION · EL CIMIENTO</span>
+            <span className="section-label">{dict.label}</span>
 
             <h2
               className="font-headline-lg"
-              style={{ color: 'var(--color-parchment)', marginBottom: '2rem' }}
+              style={{ color: 'var(--color-parchment)', marginBottom: '2rem', whiteSpace: 'pre-line' }}
             >
-              Rooted in rhythm.<br />Built for scale.
+              {dict.headline}
             </h2>
 
             <div
@@ -42,18 +46,10 @@ export default function Corridor() {
               }}
             >
               <p className="font-body-md">
-                The &ldquo;Gurumbé&rdquo; was a profound drum rhythm, echoing through the
-                16th-century streets of Seville, carried by Bantu populations
-                from Central and West Africa. It was the pulse of early
-                globalization — a living, rhythmic testimony to the ancient,
-                deeply rooted links between Africa and the Iberian peninsula.
-                From this rhythm, Flamenco was born.
+                {dict.body1}
               </p>
               <p className="font-body-md">
-                Today, that historical corridor remains open. It is no longer
-                defined by the tragedies of the past, but by the strategic flow
-                of capital, innovation, and sovereign wealth between Iberia and
-                the dynamic economies of the Global South.
+                {dict.body2}
               </p>
             </div>
 
@@ -108,7 +104,7 @@ export default function Corridor() {
                   margin: 0,
                 }}
               >
-                &ldquo;To go back and get it is not a taboo.&rdquo;
+                {dict.sankofaQuote}
               </blockquote>
               <p
                 className="font-label-lg"
@@ -118,7 +114,7 @@ export default function Corridor() {
                   letterSpacing: '0.2em',
                 }}
               >
-                — THE SANKOFA PRINCIPLE
+                — {dict.sankofaLabel}
               </p>
             </div>
           </div>
@@ -210,7 +206,7 @@ export default function Corridor() {
                     className="font-label-sm"
                     style={{ color: 'var(--color-on-surface-variant)' }}
                   >
-                    SEVILLE · NAIROBI · ACCRA · LUANDA
+                    {dict.visualLabel}
                   </p>
                 </div>
               </div>
@@ -284,8 +280,8 @@ export default function Corridor() {
         >
           {[
             {
-              title: 'Sovereign Growth',
-              body: 'Investing beyond charity tropes. We back high-growth, tech-enabled infrastructure that drives genuine economic independence — on African terms.',
+              title: dict.thesis1Title,
+              body: dict.thesis1Body,
               icon: (
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" strokeLinecap="round" strokeLinejoin="round" />
@@ -293,8 +289,8 @@ export default function Corridor() {
               ),
             },
             {
-              title: 'Cultural Fluency',
-              body: 'Relationships built on deep historical context. Our structural edge is the shared rhythm of the Iberian-African connection — four centuries of corridor, unbroken.',
+              title: dict.thesis2Title,
+              body: dict.thesis2Body,
               icon: (
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" strokeLinecap="round" strokeLinejoin="round" />

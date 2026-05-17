@@ -25,7 +25,7 @@ The palette is now a five-token system: four primary colors (the Pan-African/Ibe
 
 #### On the Galician Blue (`#0099CC`) — Honest Assessment
 
-The proposal to use the Galician *azul celeste* is thematically compelling. David F. Leston's Galician roots, the Atlantic corridor, the ocean as the physical medium of the South-to-South route — it is all correct as *narrative*.
+The proposal to use the Galician *azul celeste* is thematically compelling. Daniel Fernandez Leston's Galician roots, the Atlantic corridor, the ocean as the physical medium of the South-to-South route — it is all correct as *narrative*.
 
 **The design risk is real:** `#0099CC` is a saturated, bright cyan. In its pure form it will break the warm palette immediately. It introduces a completely different temperature and does not map to any asset class in the thesis.
 
@@ -50,7 +50,7 @@ If you want the Atlantic present visually, use it in one specific place: a very 
 
 ---
 
-### 1.3 Who Section — Daniel F. Leston Only
+### 1.3 Who Section — Daniel Fernandez Leston Only
 
 Use a **typographic treatment** — no portrait cards for now. Large name, DM Mono role label, two–three sentences explaining *why this person is uniquely positioned*, not a LinkedIn summary.
 
@@ -301,7 +301,7 @@ body {
 - Section label: `WHO IS BEHIND THIS · QUIÉN ESTÁ DETRÁS`
 - Headline: *"The Founder."*
 - **Typographic treatment** (no portrait card):
-  - Name: `David F. Leston` in Cormorant Garamond display size
+  - Name: `Daniel Fernandez Leston` in Cormorant Garamond display size
   - Role in DM Mono: `FOUNDER & STRATEGIST`
   - Short paragraph: why this person (Galician roots, African ground, AfDB engagement, EBSI/Spain MoST, Atlantic perspective)
 - Advisory Board placeholder: elegant bordered card with gold rule — `"Partners & Advisors — Introductions forthcoming."`

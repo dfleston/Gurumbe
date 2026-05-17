@@ -2,7 +2,7 @@
   "name": "gurumbe-capital",
   "version": "1.0.0",
   "description": "Gurumbé Capital — South-to-South Financial Architecture",
-  "author": "David F. Leston",
+  "author": "Daniel Fernandez Leston",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
@@ -11,15 +11,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formatjs/intl-localematcher": "^0.8.8",
     "@google/genai": "^1.29.0",
+    "gray-matter": "^4.0.3",
     "lucide-react": "^0.546.0",
     "motion": "^12.0.0",
+    "negotiator": "^1.0.0",
     "next": "^15.3.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-markdown": "^10.1.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.0",
+    "@types/negotiator": "^0.6.4",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",

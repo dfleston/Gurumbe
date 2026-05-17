@@ -4,7 +4,11 @@ import { useState } from 'react'
 
 type InquiryType = 'investment' | 'partnership' | 'media'
 
-export default function Contact() {
+type ContactProps = {
+  dict: any
+}
+
+export default function Contact({ dict }: ContactProps) {
   const [form, setForm] = useState({
     name: '',
     organization: '',
@@ -31,9 +35,9 @@ export default function Contact() {
   }
 
   const inquiryTypes: { value: InquiryType; label: string }[] = [
-    { value: 'investment', label: 'INVESTMENT' },
-    { value: 'partnership', label: 'PARTNERSHIP' },
-    { value: 'media', label: 'MEDIA & PRESS' },
+    { value: 'investment', label: dict.inquiryInvestment },
+    { value: 'partnership', label: dict.inquiryPartnership },
+    { value: 'media', label: dict.inquiryMedia },
   ]
 
   return (
@@ -58,13 +62,13 @@ export default function Contact() {
         >
           {/* Left — intro & info */}
           <div>
-            <span className="section-label">ENGAGE · CONTACTO</span>
+            <span className="section-label">{dict.label}</span>
 
             <h2
               className="font-display"
-              style={{ color: 'var(--color-parchment)', marginBottom: '2rem' }}
+              style={{ color: 'var(--color-parchment)', marginBottom: '2rem', whiteSpace: 'pre-line' }}
             >
-              Initiate<br />Dialogue.
+              {dict.headline}
             </h2>
 
             {/* Seed quote */}
@@ -79,9 +83,7 @@ export default function Contact() {
                   lineHeight: 1.7,
                 }}
               >
-                This is a seed. A seed does not ask permission to grow — it
-                finds its ground and begins. If you believe this corridor
-                matters, we would like to hear from you.
+                {dict.quote}
               </p>
             </div>
 
@@ -102,10 +104,10 @@ export default function Contact() {
                 </svg>
                 <div>
                   <p className="font-label-sm" style={{ color: 'var(--color-parchment)', marginBottom: '0.25rem' }}>
-                    HEADQUARTERS
+                    {dict.hqLabel}
                   </p>
                   <p className="font-body-md" style={{ color: 'var(--color-on-surface-variant)' }}>
-                    Paseo de la Castellana, Madrid, Spain
+                    {dict.hqAddress}
                   </p>
                 </div>
               </div>
@@ -124,7 +126,7 @@ export default function Contact() {
                 </svg>
                 <div>
                   <p className="font-label-sm" style={{ color: 'var(--color-parchment)', marginBottom: '0.25rem' }}>
-                    SECURE COMMS
+                    {dict.commsLabel}
                   </p>
                   <a
                     href="mailto:hello@gurumbe.capital"
@@ -173,11 +175,10 @@ export default function Contact() {
                   className="font-headline-md"
                   style={{ color: 'var(--color-parchment)', marginBottom: '0.75rem' }}
                 >
-                  Dossier Received
+                  {dict.successTitle}
                 </h3>
                 <p className="font-body-md" style={{ color: 'var(--color-on-surface-variant)' }}>
-                  We appreciate your interest. Someone from the Gurumbé team
-                  will be in touch shortly.
+                  {dict.successBody}
                 </p>
               </div>
             ) : (
@@ -189,7 +190,7 @@ export default function Contact() {
                 >
                   <div>
                     <label className="font-label-sm" style={{ color: 'var(--color-on-surface-variant)', display: 'block', marginBottom: '0.5rem' }}>
-                      FULL NAME *
+                      {dict.formName} *
                     </label>
                     <input
                       className="input-line"
@@ -197,13 +198,13 @@ export default function Contact() {
                       name="name"
                       value={form.name}
                       onChange={handleChange}
-                      placeholder="Your name"
+                      placeholder={dict.formNamePlaceholder}
                       required
                     />
                   </div>
                   <div>
                     <label className="font-label-sm" style={{ color: 'var(--color-on-surface-variant)', display: 'block', marginBottom: '0.5rem' }}>
-                      ORGANIZATION
+                      {dict.formOrg}
                     </label>
                     <input
                       className="input-line"
@@ -211,7 +212,7 @@ export default function Contact() {
                       name="organization"
                       value={form.organization}
                       onChange={handleChange}
-                      placeholder="Institution or firm"
+                      placeholder={dict.formOrgPlaceholder}
                     />
                   </div>
                 </div>
@@ -219,7 +220,7 @@ export default function Contact() {
                 {/* Email */}
                 <div>
                   <label className="font-label-sm" style={{ color: 'var(--color-on-surface-variant)', display: 'block', marginBottom: '0.5rem' }}>
-                    EMAIL *
+                    {dict.formEmail} *
                   </label>
                   <input
                     className="input-line"
@@ -227,7 +228,7 @@ export default function Contact() {
                     name="email"
                     value={form.email}
                     onChange={handleChange}
-                    placeholder="you@institution.com"
+                    placeholder={dict.formEmailPlaceholder}
                     required
                   />
                 </div>
@@ -235,7 +236,7 @@ export default function Contact() {
                 {/* Inquiry type */}
                 <div>
                   <label className="font-label-sm" style={{ color: 'var(--color-on-surface-variant)', display: 'block', marginBottom: '1.25rem' }}>
-                    INQUIRY TYPE
+                    {dict.formInquiryType}
                   </label>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
                     {inquiryTypes.map(({ value, label }) => (
@@ -272,14 +273,14 @@ export default function Contact() {
                 {/* Message */}
                 <div>
                   <label className="font-label-sm" style={{ color: 'var(--color-on-surface-variant)', display: 'block', marginBottom: '0.5rem' }}>
-                    MESSAGE
+                    {dict.formMessage}
                   </label>
                   <textarea
                     className="input-line"
                     name="message"
                     value={form.message}
                     onChange={handleChange}
-                    placeholder="Brief outline of your interest or proposal..."
+                    placeholder={dict.formMessagePlaceholder}
                     rows={4}
                     style={{ resize: 'none' }}
                   />
@@ -288,7 +289,7 @@ export default function Contact() {
                 {/* Submit */}
                 <div style={{ paddingTop: '0.5rem' }}>
                   <button type="submit" className="btn-ghost" style={{ width: '100%', cursor: 'pointer' }}>
-                    SUBMIT DOSSIER
+                    {dict.formSubmit}
                   </button>
                   <p
                     className="font-label-sm"
@@ -299,7 +300,7 @@ export default function Contact() {
                       opacity: 0.6,
                     }}
                   >
-                    We respect your privacy. Your information will not be shared.
+                    {dict.formPrivacy}
                   </p>
                 </div>
               </form>

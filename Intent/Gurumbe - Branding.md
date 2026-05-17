@@ -41,7 +41,7 @@ We deliver this through a three-pronged structural framework:
 
 Traditional cross-border asset management across Africa and Iberia is plagued by redundant intermediaries, high transaction costs, and multi-day settlement delays. Tokenization replaces this legacy friction with a clean, programmatic ledger.
 
-- **The Utility:** Capital allocation becomes immediate, operational overhead drops significantly, and compliance protocols (KYC/AML) are embedded natively into the asset structure itself.
+- **The Utility:** Capital allocation becomes immediate, operational overhead drops significantly, and compliance protocols (KYC/AML) are embedded natively into the asset structure itselFernandez
     
 
 ### II. Institutional Trust Architecture

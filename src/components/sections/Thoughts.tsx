@@ -2,32 +2,33 @@
 
 import Link from 'next/link'
 
-const featuredPieces = [
-  {
-    type: 'ESSAY',
-    title: 'The Corridor Was Always There',
-    subtitle:
-      'Africa, Iberia, and the Architecture of South-to-South Capital',
-    teaser:
-      'For centuries, the economic, cultural, and spiritual currents between Africa and Iberia built the very foundations of the Spanish South. The Gurumbé drum rhythm that gave birth to Flamenco in 16th-century Seville was not a footnote — it was a structural proof of concept. This is that argument, made in full.',
-    readTime: '12 min read',
-    category: 'The Corridor',
-    href: '/thoughts',
-  },
-  {
-    type: 'ESSAY',
-    title: 'Tokenization as a Binary Transition',
-    subtitle:
-      'From Unit to Unicity — Why This is Not an Upgrade',
-    teaser:
-      'Traditional securitization turns an asset into a passive paper share. Programmable compliance architecture turns it into an active, self-executing economic agent. That is not a marginal improvement. It is the $0→1 transition that changes everything about how the South-to-South corridor can be financed.',
-    readTime: '8 min read',
-    category: 'Capital & Infrastructure',
-    href: '/thoughts',
-  },
-]
+type ThoughtsProps = {
+  dict: any
+  lang: string
+}
 
-export default function Thoughts() {
+export default function Thoughts({ dict, lang }: ThoughtsProps) {
+  const featuredPieces = [
+    {
+      type: dict.piece1Type,
+      title: dict.piece1Title,
+      subtitle: dict.piece1Subtitle,
+      teaser: dict.piece1Teaser,
+      readTime: dict.piece1ReadTime,
+      category: dict.piece1Category,
+      href: `/${lang}/thoughts`,
+    },
+    {
+      type: dict.piece2Type,
+      title: dict.piece2Title,
+      subtitle: dict.piece2Subtitle,
+      teaser: dict.piece2Teaser,
+      readTime: dict.piece2ReadTime,
+      category: dict.piece2Category,
+      href: `/${lang}/thoughts`,
+    },
+  ]
+
   return (
     <section
       id="thoughts"
@@ -51,14 +52,14 @@ export default function Thoughts() {
           }}
         >
           <div>
-            <span className="section-label">EL PENSAMIENTO · THE THINKING</span>
-            <h2 className="font-headline-lg" style={{ color: 'var(--color-parchment)' }}>
-              A journal of record<br />for the corridor.
+            <span className="section-label">{dict.label}</span>
+            <h2 className="font-headline-lg" style={{ color: 'var(--color-parchment)', whiteSpace: 'pre-line' }}>
+              {dict.headline}
             </h2>
           </div>
 
           <Link
-            href="/thoughts"
+            href={`/${lang}/thoughts`}
             className="font-label-lg"
             style={{
               display: 'inline-flex',
@@ -78,7 +79,7 @@ export default function Thoughts() {
                 'var(--color-primary)')
             }
           >
-            VIEW ALL THINKING
+            {dict.viewAll}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -208,7 +209,7 @@ export default function Thoughts() {
                     className="font-label-sm"
                     style={{ color: 'var(--color-primary)' }}
                   >
-                    READ ESSAY
+                    {dict.readAction}
                   </span>
                   <svg
                     width="14"

@@ -2,23 +2,35 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
-const navLinks = [
-  { label: 'STRATEGY · ESTRATEGIA', href: '#corridor' },
-  { label: 'ASSETS · ACTIVOS', href: '#what-we-build' },
-  { label: 'CORRIDOR · CORREDOR', href: '#why-now' },
-  { label: 'ABOUT · NOSOTROS', href: '#who' },
-]
+type NavigationProps = {
+  dict: any
+  lang: string
+}
 
-export default function Navigation() {
+export default function Navigation({ dict, lang }: NavigationProps) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const navLinks = [
+    { label: dict.strategy, href: '#corridor' },
+    { label: dict.assets, href: '#what-we-build' },
+    { label: dict.corridor, href: '#why-now' },
+    { label: dict.about, href: '#who' },
+    { label: dict.thoughts, href: '/thoughts' },
+  ]
+
+  // Determine opposite language for the toggle
+  const nextLang = lang === 'en' ? 'es' : 'en'
+  const togglePath = pathname.replace(`/${lang}`, `/${nextLang}`)
 
   return (
     <nav
@@ -46,7 +58,7 @@ export default function Navigation() {
       >
         {/* Logo */}
         <Link
-          href="/"
+          href={`/${lang}`}
           style={{
             fontFamily: '"Cormorant Garamond", serif',
             fontSize: '1.25rem',
@@ -57,7 +69,7 @@ export default function Navigation() {
             textTransform: 'uppercase',
           }}
         >
-          GURUMBÉ CAPITAL
+          {dict.brand}
         </Link>
 
         {/* Desktop nav */}
@@ -72,7 +84,7 @@ export default function Navigation() {
           {navLinks.map((link) => (
             <a
               key={link.href}
-              href={link.href}
+              href={`/${lang}${link.href}`}
               className="font-label-sm"
               style={{
                 color: 'var(--color-on-surface-variant)',
@@ -91,52 +103,86 @@ export default function Navigation() {
             </a>
           ))}
 
+          {/* Lang Switcher Desktop */}
+          <Link
+            href={togglePath}
+            className="font-label-sm"
+            style={{
+              color: 'var(--color-primary)',
+              textDecoration: 'none',
+              transition: 'color 0.3s',
+              borderLeft: '1px solid var(--color-outline-variant)',
+              paddingLeft: '2.5rem',
+            }}
+            onMouseEnter={(e) =>
+              ((e.target as HTMLElement).style.color = 'var(--color-parchment)')
+            }
+            onMouseLeave={(e) =>
+              ((e.target as HTMLElement).style.color = 'var(--color-primary)')
+            }
+          >
+            {lang === 'en' ? 'ES' : 'EN'}
+          </Link>
+
           {/* Contact CTA */}
           <a
-            href="#contact"
+            href={`/${lang}#contact`}
             className="btn-ghost"
             style={{ padding: '0.5rem 1.25rem' }}
           >
-            CONTACT · CONTACTO
+            {dict.contact}
           </a>
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-          style={{
-            display: 'none',
-            background: 'none',
-            border: 'none',
-            color: 'var(--color-parchment)',
-            cursor: 'pointer',
-            padding: '0.5rem',
-          }}
-          className="mobile-menu-btn"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
+        {/* Mobile controls */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }} className="mobile-menu-btn">
+          {/* Lang Switcher Mobile */}
+          <Link
+            href={togglePath}
+            className="font-label-sm"
+            style={{
+              color: 'var(--color-primary)',
+              textDecoration: 'none',
+            }}
           >
-            {menuOpen ? (
-              <>
-                <path d="M18 6L6 18" strokeLinecap="round" />
-                <path d="M6 6l12 12" strokeLinecap="round" />
-              </>
-            ) : (
-              <>
-                <path d="M4 6h16" strokeLinecap="round" />
-                <path d="M4 12h16" strokeLinecap="round" />
-                <path d="M4 18h16" strokeLinecap="round" />
-              </>
-            )}
-          </svg>
-        </button>
+            {lang === 'en' ? 'ES' : 'EN'}
+          </Link>
+
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+            style={{
+              background: 'none',
+              border: 'none',
+              color: 'var(--color-parchment)',
+              cursor: 'pointer',
+              padding: '0.5rem',
+            }}
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              {menuOpen ? (
+                <>
+                  <path d="M18 6L6 18" strokeLinecap="round" />
+                  <path d="M6 6l12 12" strokeLinecap="round" />
+                </>
+              ) : (
+                <>
+                  <path d="M4 6h16" strokeLinecap="round" />
+                  <path d="M4 12h16" strokeLinecap="round" />
+                  <path d="M4 18h16" strokeLinecap="round" />
+                </>
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu drawer */}
@@ -154,7 +200,7 @@ export default function Navigation() {
           {navLinks.map((link) => (
             <a
               key={link.href}
-              href={link.href}
+              href={`/${lang}${link.href}`}
               className="font-label-sm"
               onClick={() => setMenuOpen(false)}
               style={{
@@ -166,12 +212,12 @@ export default function Navigation() {
             </a>
           ))}
           <a
-            href="#contact"
+            href={`/${lang}#contact`}
             className="btn-ghost"
             onClick={() => setMenuOpen(false)}
             style={{ textAlign: 'center' }}
           >
-            CONTACT · CONTACTO
+            {dict.contact}
           </a>
         </div>
       )}
@@ -182,7 +228,7 @@ export default function Navigation() {
           .desktop-nav { display: flex !important; }
         }
         @media (max-width: 767px) {
-          .mobile-menu-btn { display: block !important; }
+          .mobile-menu-btn { display: flex !important; }
           .desktop-nav { display: none !important; }
         }
       `}</style>

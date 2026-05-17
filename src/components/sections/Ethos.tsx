@@ -1,57 +1,61 @@
 'use client'
 
-const principles = [
-  {
-    roman: 'I',
-    title: 'Beyond Returns',
-    body: 'We do not hide behind ESG buzzwords or superficial impact metrics. Our foundation is historically rooted.',
-    color: 'var(--color-primary)',
-  },
-  {
-    roman: 'II',
-    title: 'Spiritually Founded',
-    body: 'We cannot approach Africa if we do not recognize its historical pain and its soul. This is an act of deep respect.',
-    color: 'var(--color-tertiary)',
-  },
-  {
-    roman: 'III',
-    title: 'A Clear Compass',
-    body: 'Africa and its people will be a major, defining force in the global future. We approach this with responsibility and hope.',
-    color: 'var(--color-secondary)',
-  },
-  {
-    roman: 'IV',
-    title: 'Integer',
-    body: 'Intelligent, diligent, and energetic. Integer — from integrity — we remain whole, unbroken, and clean in our conduct.',
-    color: 'var(--color-primary)',
-  },
-  {
-    roman: 'V',
-    title: 'Strategic Problem Solving',
-    body: 'We do not treat symptoms. We tackle issues at their structural roots. Every investment solves a fundamental bottleneck.',
-    color: 'var(--color-tertiary)',
-  },
-  {
-    roman: 'VI',
-    title: 'A Knowledgeable Voice',
-    body: 'As much as an investment vehicle, we are an authoritative voice capable of articulating the complex and the misunderstood.',
-    color: 'var(--color-secondary)',
-  },
-  {
-    roman: 'VII',
-    title: 'Macro & Micro',
-    body: 'We navigate macro shifts across demographics, energy, and digital architecture while delighting in the technical excellence of operators.',
-    color: 'var(--color-primary)',
-  },
-  {
-    roman: 'VIII',
-    title: 'Adinkra as Operating System',
-    body: 'We adopt the ancient West African system of visual and conceptual symbols as our core operating system — not decoration, but code.',
-    color: 'var(--color-tertiary)',
-  },
-]
+type EthosProps = {
+  dict: any
+}
 
-export default function Ethos() {
+export default function Ethos({ dict }: EthosProps) {
+  const principles = [
+    {
+      roman: 'I',
+      title: dict.principle1Title,
+      body: dict.principle1Body,
+      color: 'var(--color-primary)',
+    },
+    {
+      roman: 'II',
+      title: dict.principle2Title,
+      body: dict.principle2Body,
+      color: 'var(--color-tertiary)',
+    },
+    {
+      roman: 'III',
+      title: dict.principle3Title,
+      body: dict.principle3Body,
+      color: 'var(--color-secondary)',
+    },
+    {
+      roman: 'IV',
+      title: dict.principle4Title,
+      body: dict.principle4Body,
+      color: 'var(--color-primary)',
+    },
+    {
+      roman: 'V',
+      title: dict.principle5Title,
+      body: dict.principle5Body,
+      color: 'var(--color-tertiary)',
+    },
+    {
+      roman: 'VI',
+      title: dict.principle6Title,
+      body: dict.principle6Body,
+      color: 'var(--color-secondary)',
+    },
+    {
+      roman: 'VII',
+      title: dict.principle7Title,
+      body: dict.principle7Body,
+      color: 'var(--color-primary)',
+    },
+    {
+      roman: 'VIII',
+      title: dict.principle8Title,
+      body: dict.principle8Body,
+      color: 'var(--color-tertiary)',
+    },
+  ]
+
   return (
     <section
       id="ethos"
@@ -75,9 +79,9 @@ export default function Ethos() {
         >
           {/* Left — title & pull quote */}
           <div style={{ position: 'sticky', top: '7rem' }} className="ethos-sticky">
-            <span className="section-label">THE ETHOS · EL CIMIENTO</span>
-            <h2 className="font-display" style={{ color: 'var(--color-parchment)', marginBottom: '3rem' }}>
-              The Eight<br />Principles.
+            <span className="section-label">{dict.label}</span>
+            <h2 className="font-display" style={{ color: 'var(--color-parchment)', marginBottom: '3rem', whiteSpace: 'pre-line' }}>
+              {dict.headline}
             </h2>
 
             <div className="pull-quote" style={{ marginBottom: '2rem' }}>
@@ -85,7 +89,7 @@ export default function Ethos() {
                 className="font-headline-md"
                 style={{ color: 'var(--color-parchment)', fontStyle: 'italic' }}
               >
-                &ldquo;We do not invest to develop; we invest to compound sovereignty.&rdquo;
+                {dict.quote}
               </p>
             </div>
 
@@ -116,7 +120,7 @@ export default function Ethos() {
                 <line x1="52" y1="12" x2="12" y2="52" stroke="var(--color-rule-line)" strokeWidth="0.5" />
               </svg>
               <span className="font-label-sm" style={{ color: 'var(--color-on-surface-variant)' }}>
-                ADINKRA
+                {dict.adinkraLabel}
               </span>
             </div>
           </div>

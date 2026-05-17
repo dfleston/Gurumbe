@@ -1,6 +1,11 @@
 'use client'
 
-export default function Footer() {
+type FooterProps = {
+  dict: any
+  lang: string
+}
+
+export default function Footer({ dict, lang }: FooterProps) {
   return (
     <footer
       style={{
@@ -32,13 +37,13 @@ export default function Footer() {
             className="font-body-md"
             style={{ color: 'var(--color-on-surface-variant)', marginBottom: '2rem', maxWidth: '28rem' }}
           >
-            Bridging value across the South-to-South corridor.
+            {dict.tagline}
           </p>
           <p
             className="font-label-sm"
             style={{ color: 'var(--color-on-surface-variant)', opacity: 0.6 }}
           >
-            © 2025 GURUMBÉ CAPITAL. ALL RIGHTS RESERVED.
+            © 2025 GURUMBÉ CAPITAL. {dict.rights}.
           </p>
         </div>
 
@@ -53,10 +58,10 @@ export default function Footer() {
           }}
         >
           {[
-            { label: 'INVESTMENT · INVERSIÓN', href: '#what-we-build' },
-            { label: 'SOVEREIGNTY · SOBERANÍA', href: '#ethos' },
-            { label: 'THINKING · EL PENSAMIENTO', href: '/thoughts' },
-            { label: 'CONTACT · CONTACTO', href: '#contact' },
+            { label: dict.linkInvestment, href: '#what-we-build' },
+            { label: dict.linkSovereignty, href: '#ethos' },
+            { label: dict.linkThinking, href: `/${lang}/thoughts` },
+            { label: dict.linkContact, href: '#contact' },
           ].map((link) => (
             <a
               key={link.href}
@@ -105,7 +110,7 @@ export default function Footer() {
             textAlign: 'center',
           }}
         >
-          The corridor was always there.
+          {dict.bottomMessage}
         </p>
       </div>
 

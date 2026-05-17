@@ -1,6 +1,10 @@
 'use client'
 
-export default function Hero() {
+type HeroProps = {
+  dict: any
+}
+
+export default function Hero({ dict }: HeroProps) {
   return (
     <section
       id="hero"
@@ -89,7 +93,7 @@ export default function Hero() {
           className="section-label"
           style={{ letterSpacing: '0.3em' }}
         >
-          A SOVEREIGN STORY
+          {dict.label}
         </span>
 
         <h1
@@ -97,9 +101,10 @@ export default function Hero() {
           style={{
             color: 'var(--color-parchment)',
             marginBottom: '2rem',
+            whiteSpace: 'pre-line',
           }}
         >
-          The corridor<br />was always there.
+          {dict.headline}
         </h1>
 
         <p
@@ -114,9 +119,7 @@ export default function Hero() {
             marginBottom: '3rem',
           }}
         >
-          Gurumbé Capital is a thematic investment vehicle bridging Spain and
-          the Global South. We unearth value along ancient routes of exchange,
-          applying institutional rigor to high-growth, sovereign frontiers.
+          {dict.body}
         </p>
 
         {/* CTA */}
@@ -141,7 +144,7 @@ export default function Hero() {
                 'var(--color-primary)')
             }
           >
-            ENTER THE CORRIDOR
+            {dict.enter}
             <svg
               width="18"
               height="18"
@@ -156,7 +159,7 @@ export default function Hero() {
           </a>
 
           <a href="#contact" className="btn-ghost">
-            SHOW INTEREST
+            {dict.interest}
           </a>
         </div>
       </div>

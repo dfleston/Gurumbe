@@ -1,51 +1,55 @@
 'use client'
 
-const forces = [
-  {
-    number: '01',
-    label: 'DEMOGRAPHIC FACT',
-    title: 'Youth as the Ultimate Asset',
-    body: 'By 2050, one in four people on Earth will be African. This unprecedented demographic dividend shifts the center of global consumption, labor, and innovation southward — creating an undeniable gravitational pull for long-term capital deployment.',
-    accentColor: 'var(--color-secondary)',
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10 5.52 0 10-4.48 10-10" strokeLinecap="round" strokeDasharray="4 4" />
-        <path d="M12 6c3 0 6 2 6 6s-3 6-6 6" strokeLinecap="round" />
-        <path d="M12 6c-3 0-6 2-6 6s3 6 6 6" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    number: '02',
-    label: 'CAPITAL SHIFT',
-    title: 'Currency Competition',
-    body: 'As legacy financial systems fracture, tangible assets backed by verifiable registries offer sovereign stability. The corridor demands hard assets that bypass traditional intermediation to preserve purchasing power across borders.',
-    accentColor: 'var(--color-primary)',
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10 5.52 0 10-4.48 10-10" strokeLinecap="round" strokeDasharray="4 4" />
-        <path d="M12 6c3 0 6 2 6 6s-3 6-6 6" strokeLinecap="round" />
-        <path d="M12 6c-3 0-6 2-6 6s3 6 6 6" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    number: '03',
-    label: 'ARCHITECTURAL GAP',
-    title: 'Sovereign Infrastructure',
-    body: 'The infrastructure to direct European and global capital into African assets — legally structured, culturally credible, operationally grounded — does not yet exist in coherent form. That is precisely what we are building.',
-    accentColor: 'var(--color-tertiary)',
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10 5.52 0 10-4.48 10-10" strokeLinecap="round" strokeDasharray="4 4" />
-        <path d="M12 6c3 0 6 2 6 6s-3 6-6 6" strokeLinecap="round" />
-        <path d="M12 6c-3 0-6 2-6 6s3 6 6 6" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-]
+type WhyNowProps = {
+  dict: any
+}
 
-export default function WhyNow() {
+export default function WhyNow({ dict }: WhyNowProps) {
+  const forces = [
+    {
+      number: '01',
+      label: dict.force1Label,
+      title: dict.force1Title,
+      body: dict.force1Body,
+      accentColor: 'var(--color-secondary)',
+      icon: (
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10 5.52 0 10-4.48 10-10" strokeLinecap="round" strokeDasharray="4 4" />
+          <path d="M12 6c3 0 6 2 6 6s-3 6-6 6" strokeLinecap="round" />
+          <path d="M12 6c-3 0-6 2-6 6s3 6 6 6" strokeLinecap="round" />
+        </svg>
+      ),
+    },
+    {
+      number: '02',
+      label: dict.force2Label,
+      title: dict.force2Title,
+      body: dict.force2Body,
+      accentColor: 'var(--color-primary)',
+      icon: (
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10 5.52 0 10-4.48 10-10" strokeLinecap="round" strokeDasharray="4 4" />
+          <path d="M12 6c3 0 6 2 6 6s-3 6-6 6" strokeLinecap="round" />
+          <path d="M12 6c-3 0-6 2-6 6s3 6 6 6" strokeLinecap="round" />
+        </svg>
+      ),
+    },
+    {
+      number: '03',
+      label: dict.force3Label,
+      title: dict.force3Title,
+      body: dict.force3Body,
+      accentColor: 'var(--color-tertiary)',
+      icon: (
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10 5.52 0 10-4.48 10-10" strokeLinecap="round" strokeDasharray="4 4" />
+          <path d="M12 6c3 0 6 2 6 6s-3 6-6 6" strokeLinecap="round" />
+          <path d="M12 6c-3 0-6 2-6 6s3 6 6 6" strokeLinecap="round" />
+        </svg>
+      ),
+    },
+  ]
+
   return (
     <section
       id="why-now"
@@ -58,13 +62,13 @@ export default function WhyNow() {
       <div className="container-max">
         {/* Header */}
         <header style={{ marginBottom: '4rem' }}>
-          <span className="section-label">WHY NOW · POR QUÉ AHORA</span>
+          <span className="section-label">{dict.label}</span>
 
           <h2
             className="font-display"
-            style={{ color: 'var(--color-parchment)', marginBottom: '2rem', maxWidth: '42rem' }}
+            style={{ color: 'var(--color-parchment)', marginBottom: '2rem', maxWidth: '42rem', whiteSpace: 'pre-line' }}
           >
-            The Convergence of<br />Hemispheric Forces
+            {dict.headline}
           </h2>
 
           <div
@@ -75,9 +79,7 @@ export default function WhyNow() {
             className="font-body-lg"
             style={{ color: 'var(--color-on-surface-variant)', maxWidth: '36rem' }}
           >
-            We stand at an inflection point where institutional capital is
-            reprioritizing growth markets, driven by demographic inevitability
-            and the demand for sovereign architectural infrastructure.
+            {dict.body}
           </p>
         </header>
 
@@ -165,14 +167,13 @@ export default function WhyNow() {
             className="font-headline-md"
             style={{ color: 'var(--color-parchment)', fontStyle: 'italic', marginBottom: '1.25rem' }}
           >
-            &ldquo;We are not waiting for the future to be distributed; we are
-            structuring the rails upon which it will run.&rdquo;
+            {dict.quote}
           </p>
           <p
             className="font-label-lg"
             style={{ color: 'var(--color-primary)', letterSpacing: '0.2em' }}
           >
-            GURUMBÉ CAPITAL THESIS
+            {dict.quoteLabel}
           </p>
         </div>
       </div>
