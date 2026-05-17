@@ -17,20 +17,20 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm border-b border-border z-50">
-      <div className="container max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-md border-b border-outline z-50">
+      <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="text-2xl font-serif font-bold text-primary">
+        <Link href="/" className="text-2xl font-display font-medium text-primary hover:text-primary-dim transition-colors">
           Gurumbé
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex gap-8">
+        <div className="hidden md:flex gap-12">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+              className="font-mono text-[11px] uppercase tracking-[0.15em] text-on-background/70 hover:text-primary transition-colors duration-200"
             >
               {item.label}
             </a>
@@ -44,22 +44,22 @@ export default function Navigation() {
           aria-label="Toggle menu"
         >
           <div className="w-6 h-6 flex flex-col justify-between">
-            <span className={`h-0.5 bg-foreground transition-all ${isOpen ? "rotate-45 translate-y-2.5" : ""}`} />
-            <span className={`h-0.5 bg-foreground transition-all ${isOpen ? "opacity-0" : ""}`} />
-            <span className={`h-0.5 bg-foreground transition-all ${isOpen ? "-rotate-45 -translate-y-2.5" : ""}`} />
+            <span className={`h-0.5 bg-on-background transition-all ${isOpen ? "rotate-45 translate-y-2.5" : ""}`} />
+            <span className={`h-0.5 bg-on-background transition-all ${isOpen ? "opacity-0" : ""}`} />
+            <span className={`h-0.5 bg-on-background transition-all ${isOpen ? "-rotate-45 -translate-y-2.5" : ""}`} />
           </div>
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-background border-t border-border">
-          <div className="container max-w-7xl mx-auto px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden bg-surface-dim border-t border-outline">
+          <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-6">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                className="font-mono text-[11px] uppercase tracking-[0.15em] text-on-background hover:text-primary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}

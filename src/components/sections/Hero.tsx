@@ -1,51 +1,62 @@
-import Link from "next/link";
+"use client";
+
+import { motion } from "motion/react";
 
 export default function Hero() {
   return (
-    <section className="pt-32 pb-20 md:pt-48 md:pb-32 px-6">
-      <div className="container max-w-4xl mx-auto text-center">
-        <div className="inline-block mb-6 px-4 py-2 bg-accent/10 rounded-full">
-          <span className="text-sm font-medium text-accent">The South-to-South Corridor</span>
-        </div>
+    <section className="relative min-h-[90vh] flex items-center justify-center pt-20 overflow-hidden">
+      <div 
+        className="absolute inset-0 opacity-40 mix-blend-luminosity grayscale contrast-125"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2670&auto=format&fit=crop')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      />
+      <div className="cinematic-gradient" />
+      
+      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+        <motion.span 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="section-label"
+        >
+          THE ARCHITECTURE · LA ARQUITECTURA
+        </motion.span>
+        
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="text-5xl md:text-8xl mb-8 leading-[1.1]"
+        >
+          Structural Integrity.
+        </motion.h1>
+        
+        <motion.p 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+          className="text-lg md:text-xl text-on-background/60 max-w-2xl mx-auto leading-relaxed italic"
+        >
+          Our methodology rejects arbitrary complexity in favor of resilient, institutional-grade architecture. We bridge the South-to-South corridor through highly regulated holding structures.
+        </motion.p>
 
-        <h1 className="text-5xl md:text-7xl font-serif font-bold mb-8 text-balance leading-tight">
-          The Corridor Was Always There
-        </h1>
-
-        <p className="text-xl md:text-2xl text-muted mb-12 max-w-2xl mx-auto text-balance font-light">
-          We&apos;re building a bridge between Africa and Iberia. Not to exploit. To invest. To recognize. To unlock capital that was always meant to flow.
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-          <a href="#contact">
-            <button className="primary w-full sm:w-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="mt-12"
+        >
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <a href="#contact" className="btn-outline inline-block">
               Show Your Interest
-            </button>
-          </a>
-          <a href="#corridor">
-            <button className="secondary w-full sm:w-auto">
+            </a>
+            <a href="#what-we-build" className="btn-outline inline-block">
               Explore the Vision
-            </button>
-          </a>
-        </div>
-
-        <div className="mt-20 pt-12 border-t border-border">
-          <p className="text-sm text-muted uppercase tracking-wider mb-8">Trust. Vision. Capital.</p>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <div className="text-3xl font-serif font-bold text-primary mb-2">8</div>
-              <p className="text-sm text-muted">Countries in the Corridor</p>
-            </div>
-            <div>
-              <div className="text-3xl font-serif font-bold text-secondary mb-2">∞</div>
-              <p className="text-sm text-muted">Possibilities Unlocked</p>
-            </div>
-            <div>
-              <div className="text-3xl font-serif font-bold text-accent mb-2">Now</div>
-              <p className="text-sm text-muted">The Time is Now</p>
-            </div>
+            </a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
