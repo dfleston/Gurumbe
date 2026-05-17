@@ -1,0 +1,25 @@
+import type { Metadata } from "next";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "Gurumbé Capital - South-to-South Investment Corridor",
+  description: "Tokenizing real assets to unlock capital between Africa and Iberia. The corridor was always there.",
+  viewport: "width=device-width, initial-scale=1",
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" className="bg-background">
+      <head>
+        <meta name="theme-color" content="#2a2a2a" />
+      </head>
+      <body className="min-h-screen bg-background text-foreground font-sans">
+        {children}
+      </body>
+    </html>
+  );
+}
