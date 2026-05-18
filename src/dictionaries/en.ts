@@ -217,10 +217,10 @@ export default {
     pillar7Body: 'We do not bypass sovereign states. We engage directly with public administrations, municipal institutions, and sovereign entities as peers. Operating with absolute respect and integrity, we help governments address strategic energy and housing issues through modern, tech-enabled capital solutions.',
     pillar8Title: 'Pillar 8 — Seamlessly Blended Finance',
     pillar8Body: 'We deliberately blend financing layers: equity, debt, and direct utility rights. We unite local private operators, public administrations, European institutional capital, pan-African development institutions, and international retail allocators into a single, synchronized corridor. The blend is the architecture.',
-    marketsHeadline: 'Focus Markets & Rationale',
-    madridRationale: 'Madrid represents the European gateway. Our Master Holding Company sits here, bridging legal registries and compliant capital allocation across the EU, with absolute regulatory adherence under MiCA.',
-    nairobiRationale: 'Nairobi is our East African tech and banking nexus. As the Silicon Savannah, it operates at a velocity of digital adoption that bypasses legacy infrastructure, creating immediate pipeline capabilities.',
-    accraRationale: 'Accra anchors our West African gateway. Its unparalleled political stability and long history of trade create a highly secure environment for venture building and real asset tokenization.',
+    marketsHeadline: 'Focus & Rationale',
+    madridRationale: 'Madrid is our European gateway. It is the strategic nexus connecting us to European and Ibero-American institutional capital with full regulatory compliance across the EU. From here, we enable access to world-class technological and industrial partners who understand the reality of the South.',
+    nairobiRationale: 'Nairobi is the premier tech and banking hub in East Africa, and home to the UN headquarters in Africa. Known as the Silicon Savannah, it is experiencing an accelerated wave of digital adoption that bypasses legacy infrastructure. Progressive regulatory frameworks for Virtual Assets and energy infrastructure create an ideal proving ground for the deployment of smart capital.',
+    accraRationale: 'Accra anchors our West African gateway. Characterized by exceptional political stability and social peace, Ghana offers a uniquely secure entry point to the subcontinent. Beyond its rich foundation of gold and natural resources, Accra is experiencing accelerated urbanization and digitization. It is also a strategic platform to gain exposure to the immense scale and complexity of Nigeria.',
     nextPhaseMarkets: 'Namibia\'s green hydrogen potential and Angola\'s Lusophone corridor are in active pipeline development for Phase II.',
     cta: 'Initiate a conversation →',
   },
@@ -301,14 +301,14 @@ export default {
     label: 'INVEST · INVERTIR',
     headline: 'Fractional access to real African assets.',
     subhead: 'Premium infrastructure. Accessible entry. Regulated rails. And a personal right to discover Africa from the inside.',
-    
+
     // THE CASE
     theCaseLabel: 'THE CASE · LA TESIS',
     theCaseTitle: 'Why now. Why here.',
     theCaseBody1: 'African real assets are among the most underliquified, underpriced, and underaccessed on Earth. Not because they lack value — because they lack the infrastructure to connect them to global capital.',
     theCaseBody2: 'Gurumbé is building that infrastructure. Starting with the asset class with the most immediate proof of concept: premium hospitality and serviced real estate in the corridor\'s most dynamic markets.',
     theCaseCta: 'The full investment thesis →',
-    
+
     // ROADMAP
     roadmapLabel: 'ROADMAP · HOJA DE RUTA',
     roadmapTitle: 'Four asset classes. One corridor.',

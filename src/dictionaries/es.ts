@@ -217,10 +217,10 @@ export default {
     pillar7Body: 'No evitamos a los estados soberanos. Nos comprometemos directamente con las administraciones públicas, las instituciones municipales y las entidades soberanas de igual a igual. Operando con absoluto respeto e integridad, ayudamos a los gobiernos a abordar problemas estratégicos de energía y vivienda a través de soluciones de capital modernas y habilitadas por tecnología.',
     pillar8Title: 'Pillar 8 — Finanzas Combinadas Integradas',
     pillar8Body: 'Combinamos deliberadamente capas de financiamiento: capital, deuda y derechos de utilidad directos. Unimos a operadores privados locales, administraciones públicas, capital institucional europeo, instituciones de desarrollo panafricanas y asignadores minoristas internacionales en un único corredor sincronizado. La combinación es la arquitectura.',
-    marketsHeadline: 'Mercados de Enfoque y Justificación',
-    madridRationale: 'Madrid representa la puerta de entrada europea. Nuestra Master Holding Company se encuentra aquí, uniendo registros legales y una asignación de capital compatible en toda la UE, con absoluta conformidad regulatoria bajo MiCA.',
-    nairobiRationale: 'Nairobi es nuestro nexo financiero y tecnológico en África Oriental. Como Silicon Savannah, opera a una velocidad de adopción digital que elude la infraestructura heredada, creando capacidades de canalización de proyectos inmediatas.',
-    accraRationale: 'Accra ancla nuestra puerta de entrada en África Occidental. Su inigualable estabilidad política y larga historia comercial crean un entorno altamente seguro para la creación de empresas y la tokenización de activos reales.',
+    marketsHeadline: 'Mercados y Justificación',
+    madridRationale: 'Madrid es nuestra puerta de entrada europea. Es el nexo estratégico que nos conecta con el capital institucional europeo e iberoamericano con total conformidad regulatoria en toda la UE. Desde aquí, posibilitamos el acceso a socios tecnológicos e industriales de clase mundial que entienden la realidad del Sur.',
+    nairobiRationale: 'Nairobi es el principal hub tecnológico y bancario en África Oriental, y sede de la ONU en África. Conocido como la Silicon Savannah, está viviendo una adopción digital acelerada que deja atrás la infraestructura heredada. Los marcos regulatorios progresistas para Activos Virtuales e infraestructura energética crean un banco de pruebas ideal para el despliegue de capital inteligente.',
+    accraRationale: 'Accra es la puerta de entrada a África Occidental. Caracterizada por una estabilidad política excepcional y paz social, Ghana ofrece un punto de entrada al subcontinente. Con una enrome riqueza en oro y recursos naturales, el país vive un proceso acelerado de urbanización y digitalización. Tambíen funciona como plataforma para exponerse a la inmensa escala y complejidad de la vecina Nigeria.',
     nextPhaseMarkets: 'El potencial de hidrógeno verde de Namibia y el corredor lusófono de Angola se encuentran en desarrollo activo de canalización para la Fase II.',
     cta: 'Iniciar una conversación →',
   },
@@ -301,14 +301,14 @@ export default {
     label: 'INVEST · INVERTIR',
     headline: 'Acceso fraccionado a activos reales africanos.',
     subhead: 'Infraestructura premium. Entrada accesible. Rieles regulados. Y un derecho personal para descubrir África desde dentro.',
-    
+
     // THE CASE
     theCaseLabel: 'LA TESIS · THE CASE',
     theCaseTitle: 'Por qué ahora. Por qué aquí.',
     theCaseBody1: 'Los activos reales africanos se encuentran entre los menos liquidados, valorados y accesibles de la Tierra. No por falta de valor, sino porque carecen de la infraestructura para conectarlos con el capital global.',
     theCaseBody2: 'Gurumbé está construyendo esa infraestructura. Comenzando con la clase de activo que tiene la prueba de concepto más inmediata: bienes raíces de hospitalidad premium y de servicios en los mercados más dinámicos del corredor.',
     theCaseCta: 'La tesis de inversión completa →',
-    
+
     // ROADMAP
     roadmapLabel: 'HOJA DE RUTA · ROADMAP',
     roadmapTitle: 'Cuatro clases de activos. Un corredor.',
