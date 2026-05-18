@@ -32,7 +32,7 @@ export default {
     body3: 'Hoy, ese corredor histórico se está reconstruyendo — no como nostalgia, sino como arquitectura.',
     sankofaQuote: '"Regresar y recuperarlo no es tabú."',
     sankofaLabel: 'EL PRINCIPIO SANKOFA',
-    visualLabel: 'SEVILLA · NAIROBI · ACCRA',
+    visualLabel: 'MADRID · NAIROBI · ACCRA',
   },
   whyNow: {
     label: 'WHY NOW · POR QUÉ AHORA',
