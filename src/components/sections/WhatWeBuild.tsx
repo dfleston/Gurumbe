@@ -13,7 +13,7 @@ export default function WhatWeBuild({ dict, lang = 'en' }: WhatWeBuildProps) {
       phase: dict.phase1Label,
       title: dict.phase1Title,
       body: dict.phase1Body,
-      hubs: ['Nairobi', 'Accra'],
+      hubs: ['Nairobi', 'Tatu City', 'Mombasa', 'Accra'],
       accentColor: 'var(--color-tertiary-container)',
       offset: false,
       icon: (
@@ -26,7 +26,7 @@ export default function WhatWeBuild({ dict, lang = 'en' }: WhatWeBuildProps) {
       phase: dict.phase2Label,
       title: dict.phase2Title,
       body: dict.phase2Body,
-      hubs: ['Namibia', 'Kenya', 'Accra'],
+      hubs: ['Kenya', 'Namibia'],
       accentColor: 'var(--color-secondary)',
       offset: true,
       icon: (
@@ -39,7 +39,7 @@ export default function WhatWeBuild({ dict, lang = 'en' }: WhatWeBuildProps) {
       phase: dict.phase3Label,
       title: dict.phase3Title,
       body: dict.phase3Body,
-      hubs: ['Madrid', 'Nairobi', 'Accra'],
+      hubs: ['Nairobi', 'Accra'],
       accentColor: 'var(--color-primary)',
       offset: false,
       icon: (
@@ -52,7 +52,7 @@ export default function WhatWeBuild({ dict, lang = 'en' }: WhatWeBuildProps) {
       phase: dict.phase4Label,
       title: dict.phase4Title,
       body: dict.phase4Body,
-      hubs: ['Madrid', 'Nairobi', 'Accra'],
+      hubs: ['Kenya', 'Ghana', 'Nigeria', 'Senegal', 'Rwanda'],
       accentColor: 'var(--color-outline)',
       offset: true,
       icon: (
