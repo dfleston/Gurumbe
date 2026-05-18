@@ -300,28 +300,230 @@ export default {
   investPage: {
     label: 'INVEST · INVERTIR',
     headline: 'Acceso fraccionado a activos reales africanos.',
-    subhead: 'Infraestructura premium. Entrada accesible. Rieles regulados.',
-    howItWorksTitle: 'Cómo Funciona',
-    step1Title: 'Paso 1 — Elija un activo',
-    step1Body: 'Gurumbé estructura las inversiones en torno a activos africanos específicos y verificados — bienes raíces, infraestructura energética y acciones cotizadas. Cada activo tiene una envoltura legal clara, una valoración auditada y un perfil de rendimiento proyectado.',
-    step2Title: 'Paso 2 — Adquiera una unidad digital',
-    step2Body: 'A través de nuestra alianza de distribución con TokenCity (una plataforma de tokenización regulada de la UE), los inversores calificados adquieren unidades digitales fraccionarias que representan una propiedad proporcional en la SPV del activo subyacente. La entrada es accesible en una variedad de tamaños de ticket.',
-    step3Title: 'Paso 3 — Reciba rendimiento de forma programática',
-    step3Body: 'Las distribuciones están automatizadas. Los ingresos por alquileres, los ingresos por compra de energía y la revalorización se calculan y distribuyen a los titulares de tokens según un calendario definido — sin demoras de intermediarios.',
-    pipelineTitle: 'Pipeline de Activos Reales Alternativos',
-    pipelineDisclaimer: 'Todas las inversiones están estructuradas a través de SPVs reguladas. Esta página es informativa. La documentación de inversión formal se proporciona a través del proceso de incorporación de TokenCity.',
-    faqTitle: 'Preguntas Frecuentes',
-    faq1Q: '¿Necesito ser un inversor institucional?',
-    faq1A: 'No. Nuestro riel de distribución está diseñado para acomodar tanto a asignadores institucionales como minoristas calificados. Los tamaños mínimos de ticket varían según la clase de activo.',
-    faq2Q: '¿Qué es una unidad digital?',
-    faq2A: 'Un derecho de propiedad fraccional en un Vehículo de Propósito Especial (SPV) que posee el activo subyacente. Es un instrumento financiero regulado — no un token especulativo.',
-    faq3Q: '¿Cómo se protege legalmente el activo?',
-    faq3A: 'Cada SPV es una entidad legal separada en una jurisdicción africana adecuada. El título del activo, los acuerdos de custodia y los contratos de ingresos se mantienen todos a nivel de la SPV. La unidad digital refleja la propiedad proporcional de la SPV.',
-    faq4Q: '¿Qué rendimientos debo esperar?',
-    faq4A: 'Los perfiles de rendimiento varían según la clase de activo. Los bienes raíces generan rendimiento por alquiler y revalorización. La infraestructura energética genera un rendimiento de flujo de efectivo contratado a partir de acuerdos de compra de energía. Las acciones públicas generan rendimiento por dividendos y revalorización de mercado. Se proporciona la documentación completa antes de la inversión.',
-    faq5Q: '¿Cómo participa TokenCity?',
-    faq5A: 'TokenCity es nuestro socio de distribución regulado en la UE — la plataforma a través de la cual los inversores minoristas e institucionales europeos se incorporan, verifican su identidad y adquieren unidades digitales. Ellos gestionan la capa de cumplimiento.',
-    cta: 'Unirse a la lista de espera →',
+    subhead: 'Infraestructura premium. Entrada accesible. Rieles regulados. Y un derecho personal para descubrir África desde dentro.',
+    
+    // THE CASE
+    theCaseLabel: 'LA TESIS · THE CASE',
+    theCaseTitle: 'Por qué ahora. Por qué aquí.',
+    theCaseBody1: 'Los activos reales africanos se encuentran entre los menos liquidados, valorados y accesibles de la Tierra. No por falta de valor, sino porque carecen de la infraestructura para conectarlos con el capital global.',
+    theCaseBody2: 'Gurumbé está construyendo esa infraestructura. Comenzando con la clase de activo que tiene la prueba de concepto más inmediata: bienes raíces de hospitalidad premium y de servicios en los mercados más dinámicos del corredor.',
+    theCaseCta: 'La tesis de inversión completa →',
+    
+    // ROADMAP
+    roadmapLabel: 'HOJA DE RUTA · ROADMAP',
+    roadmapTitle: 'Cuatro clases de activos. Un corredor.',
+    roadmapPhases: [
+      { num: '01', label: 'FASE 1 — RAÍCES', title: 'Inmobiliario Inteligente', description: 'Residencial, Hospitality e Industrial en hubs emergentes.', active: true },
+      { num: '02', label: 'FASE 2 — POTENCIA', title: 'Infraestructura Energética', description: 'Activos energéticos y computacionales descentralizados anclados en grandes consumidores industriales.', active: false },
+      { num: '03', label: 'FASE 3 — ESCALA', title: 'VC Venture Building', description: 'Nos asociamos con emprendedores, operadores y VC líderes para crear empresas disruptivas que aprovechan la tecnología.', active: false },
+      { num: '04', label: 'FASE 4 — LIQUIDIDA', title: 'Acciones Públicas Africanas', description: 'Acceso simple a los mercados públicos africanos.', active: false },
+    ],
+    roadmapActiveText: 'ACTIVO',
+    roadmapInactiveText: 'PRÓXIMA FASE',
+
+    // STAGES
+    stagesLabel: 'FASES DE DESARROLLO · DEVELOPMENT STAGES',
+    stagesTitle: 'Tres fases. Tres perfiles de riesgo-retorno.',
+    stagesIntro: 'El pipeline de Gurumbé incluye activos en distintas fases de desarrollo. Cada fase tiene un perfil de riesgo, horizonte y retorno diferente. Entiende en qué estás invirtiendo antes de asignar.',
+    stagesList: [
+      {
+        key: 'LAND',
+        color: '#b5651d',
+        title: 'Suelo',
+        risk: 'Mayor riesgo · Mayor revalorización',
+        body: 'Activos en fase de adquisición de suelo y tramitación de permisos. Sin rendimiento corriente. El inversor captura la máxima revalorización a cambio de un horizonte de desarrollo más largo (3–5 años) y el riesgo de planificación asociado.',
+      },
+      {
+        key: 'IN CONSTRUCTION',
+        color: '#c8a84b',
+        title: 'En Construcción',
+        risk: 'Riesgo medio · Descuento pre-conclusión',
+        body: 'Activos con permisos concedidos, financiación asegurada y construcción en curso. El inversor accede con un descuento del 15–20% respecto al valor estimado en finalización. El rendimiento comienza en la fecha de entrada en operación.',
+      },
+      {
+        key: 'OPERATIONAL',
+        color: '#4a9e6b',
+        title: 'Operativo',
+        risk: 'Menor riesgo · Rendimiento inmediato',
+        body: 'Activos en plena operación con inquilinos establecidos y historial de ocupación. El rendimiento comienza el primer mes. El derecho de uso personal está activo inmediatamente. El perfil de revalorización es más conservador pero el flujo de caja es verificable.',
+      },
+    ],
+
+    // DIFFERENTIATOR
+    diffLabel: 'EL DIFERENCIADOR',
+    diffTitle: 'No es solo una posición financiera. Es una invitación a estar dentro.',
+    diffBody: 'Tu token incluye un derecho programable de uso personal — noches en la propiedad, con servicio de conserje, a tarifas proporcionales a tu participación. Para el inversor de la diáspora que tiene lazos familiares en la región. Para el europeo consciente del impacto que quiere ver lo que posee. Para el nómada digital que quiere acceso a África con alojamiento de calidad institucional. Ningún otro vehículo de inversión africana ofrece esto.',
+
+    // PIPELINE
+    pipelineLabel: 'PIPELINE DE ACTIVOS · ASSET PIPELINE',
+    pipelineTitle: 'Dónde estamos construyendo.',
+    assets: [
+      {
+        city: 'Nairobi',
+        district: 'Westlands · Kilimani · Upperhill',
+        country: 'Kenia',
+        countryKey: 'kenya',
+        role: 'Capital tecnológica y financiera de África Oriental',
+        stage: 'OPERATIONAL',
+        accentColor: 'var(--color-primary)',
+        thesis:
+          'Nairobi alberga la sede africana de más de 40 corporaciones multinacionales y el ecosistema que produjo M-Pesa. La demanda corporativa de alojamiento con servicios premium supera estructuralmente la oferta, generando una ocupación anual superior al 80% en inventario gestionado de calidad.',
+        marketDetail: [
+          'Unidades de servicios de 2 dormitorios en Westlands y Kilimani: $2,500–$4,500 USD/mes',
+          'Demanda impulsada por corporaciones, DFI y sector tecnológico — no estacional',
+          'Los alquileres denominados en USD aíslan contra la volatilidad del chelín keniano',
+          'Vuelos directos desde Madrid, Londres, Dubái y Ámsterdam',
+        ],
+        metrics: [
+          { label: 'RENDIMIENTO DE ALQUILER BRUTO', value: '9–12%', sub: 'anual' },
+          { label: 'REVALORIZACIÓN A 5 AÑOS', value: '6–9%', sub: 'anual' },
+          { label: 'DERECHO DE USO', value: '14–21 noches', sub: 'por tramo de token / año' },
+        ],
+      },
+      {
+        city: 'Mombasa',
+        district: 'Nyali · Bamburi · Shanzu',
+        country: 'Kenia',
+        countryKey: 'kenya',
+        role: 'Ocio en la costa suajili y hospitalidad boutique',
+        stage: 'CONSTRUCTION',
+        accentColor: 'var(--color-primary)',
+        thesis:
+          'La costa de Nyali y Bamburi en Mombasa es el principal destino de ocio costero de Kenia. El turismo se está recuperando con fuerza tras el 2022, con un crecimiento de los viajes intraafricanos y europeos. Las villas y apartamentos boutique con servicios obtienen tarifas nocturnas premium que superan a las de Nairobi por noche, con una sólida tesis de derecho de uso para inversores que buscan el descubrimiento físico.',
+        marketDetail: [
+          'Unidades boutique de servicios: $180–$380 USD/noche (temporada alta)',
+          'Creciente demanda de la diáspora: expatriados kenianos que invierten en activos de estilo de vida costero',
+          'La proximidad a la Ciudad Vieja declarada Patrimonio de la Humanidad por la UNESCO añade atractivo turístico',
+          'Perfil estacional — el pico de noviembre a marzo coincide con el invierno europeo',
+        ],
+        metrics: [
+          { label: 'RENDIMIENTO PROJ. A LA ENTREGA', value: '10–14%', sub: 'bruto, ocupación estabilizada' },
+          { label: 'DESCUENTO POR PRE-ENTREGA', value: '15–20%', sub: 'vs valor estimado de finalización' },
+          { label: 'DERECHO DE USO', value: '10–14 noches', sub: 'por tramo de token / año (pico)' },
+        ],
+      },
+      {
+        city: 'Tatu City',
+        district: 'Condado de Kiambu — a 30 km al norte de Nairobi',
+        country: 'Kenia',
+        countryKey: 'kenya',
+        role: 'La ciudad planificada más avanzada de África — juego de suelo y fase temprana',
+        stage: 'LAND',
+        accentColor: 'var(--color-primary)',
+        thesis:
+          'Tatu City es una Zona Económica Especial de 5,000 acres a 30 km del centro de Nairobi — el desarrollo urbano planificado más avanzado de África, con su propia gobernanza, energía e infraestructura vial. Más de 250 empresas se han registrado. El suelo residencial y de hospitalidad dentro de la SEZ tiene un perfil de riesgo fundamentalmente diferente: revalorización en fase de infraestructura, sin rendimiento corriente. La tesis es el precio de entrada y la certeza de zonificación.',
+        marketDetail: [
+          'Estatus de Zona Económica Especial: incentivos fiscales, gobernanza propia, infraestructura',
+          'Los inquilinos ancla incluyen a DHL, Unilever, Krones y más de 250 empresas',
+          'Parcelas residenciales y hoteleras de la Fase 3 ahora disponibles para inversores',
+          'Centro de Nairobi a 30 minutos en coche — servicio de transporte en crecimiento y futura conexión ferroviaria',
+        ],
+        metrics: [
+          { label: 'REVALORIZACIÓN PROYECTADA A 5 AÑOS', value: '18–25%', sub: 'anual (despliegue de infraestructura SEZ)' },
+          { label: 'HORIZONTE DE DESARROLLO', value: '3–5 años', sub: 'hasta finalización del activo hotelero' },
+          { label: 'ETAPA DE ENTRADA', value: 'Pre-zonificación', sub: 'ventana máxima de revalorización' },
+        ],
+      },
+      {
+        city: 'Accra',
+        district: 'Airport Residential · Cantonments · East Legon',
+        country: 'Ghana',
+        countryKey: 'ghana',
+        role: 'La puerta de entrada más estable de África Occidental',
+        stage: 'OPERATIONAL',
+        accentColor: 'var(--color-tertiary)',
+        thesis:
+          'Ghana ofrece lo que pocos mercados africanos pueden: estado de derecho consistente, estabilidad democrática y la mayor concentración de financiamiento para el desarrollo en África Occidental. El mercado de Accra está menos maduro que el de Nairobi — un punto de entrada más bajo y mayor potencial de revalorización.',
+        marketDetail: [
+          'Unidades premium en Airport Residential Area: $1,800–$3,200 USD/mes',
+          'Ocupación media del 75–85% para inventario gestionado de calidad',
+          'Hogar del cuerpo diplomático, sector de ONG y una creciente comunidad tecnológica',
+          'Mercado en fase más temprana: mayor trayectoria de crecimiento a largo plazo que el saturado oeste',
+        ],
+        metrics: [
+          { label: 'RENDIMIENTO DE ALQUILER BRUTO', value: '8–11%', sub: 'anual' },
+          { label: 'REVALORIZACIÓN A 5 AÑOS', value: '8–12%', sub: 'anual' },
+          { label: 'DERECHO DE USO', value: '14–21 noches', sub: 'por tramo de token / año' },
+        ],
+      },
+      {
+        city: 'Takoradi',
+        district: 'La capital de petróleo y gas de Ghana',
+        country: 'Ghana',
+        countryKey: 'ghana',
+        role: 'Alojamiento corporativo del sector energético — rendimiento defensivo en USD',
+        stage: 'CONSTRUCTION',
+        accentColor: 'var(--color-tertiary)',
+        thesis:
+          'Takoradi es el centro de petróleo y gas de Ghana — hogar de los campos marinos Jubilee, TEN y Sankofa. El mercado de alojamiento corporativo está impulsado por empleados del sector energético, contratistas y ejecutivos visitantes que requieren apartamentos con servicios premium y seguros en contratos a medio plazo. La demanda no es estacional, está denominada en USD y está estructuralmente desabastecida en relación con la expansión de la fuerza laboral en curso.',
+        marketDetail: [
+          'Unidades con servicios corporativos: $2,000–$3,800 USD/mes en contratos de 3 a 12 meses',
+          'Inquilinos: petroleras multinacionales, contratistas EPC y personal de DFI — riesgo de impago muy bajo',
+          'La expansión del puerto impulsa una nueva ola de inversión en infraestructura hasta 2027',
+          'El stock limitado de calidad crea una brecha de suministro estructural — baja competencia',
+        ],
+        metrics: [
+          { label: 'RENDIMIENTO PROJ. A LA ENTREGA', value: '11–15%', sub: 'bruto — base de inquilinos corporativos defensiva' },
+          { label: 'DURACIÓN DE CONTRATOS', value: '3–12 meses', sub: 'plazo medio, bajo riesgo de vacancia' },
+          { label: 'DIVISA', value: 'USD', sub: 'alquileres denominados en dólares' },
+        ],
+      },
+      {
+        city: 'Cape Coast',
+        district: 'Costa de Patrimonio Mundial de la UNESCO',
+        country: 'Ghana',
+        countryKey: 'ghana',
+        role: 'Turismo de patrimonio cultural y ocio de la diáspora',
+        stage: 'LAND',
+        accentColor: 'var(--color-tertiary)',
+        thesis:
+          'Cape Coast es la ciudad Patrimonio de la Humanidad por la UNESCO de Ghana y el hogar espiritual de la diáspora africana — sitio del Castillo de Cape Coast, el punto de partida de la trata transatlántica de esclavos. El impulso del \'Año del Retorno\', lanzado en 2019, ha desplazado permanentemente el turismo de la diáspora a Ghana. La hospitalidad boutique premium en la costa de Cape Coast es el activo de mayor alineación de la cartera: donde se encuentran la cultura, la historia y el capital.',
+        marketDetail: [
+          'La declaración de la UNESCO impulsa un creciente turismo cultural europeo y estadounidense',
+          'La demanda de visitantes e inversores de la diáspora crece estructuralmente desde el Año del Retorno 2019',
+          'Alojamiento premium muy limitado — la mayor parte del stock es económico o de gama media',
+          'Los valores del suelo están aumentando pero siguen siendo accesibles — clara ventaja del primer actor',
+        ],
+        metrics: [
+          { label: 'REVALORIZACIÓN PROYECTADA A 5 AÑOS', value: '20–28%', sub: 'anual (destino cultural temprano)' },
+          { label: 'HORIZONTE DE DESARROLLO', value: '2–4 años', sub: 'hasta boutique hotelera finalizada' },
+          { label: 'ALINEACIÓN CULTURAL', value: 'Máxima', sub: 'tesis de inversor de la diáspora y corredor' },
+        ],
+      },
+    ],
+    countries: [
+      { key: 'kenya', label: 'Kenia' },
+      { key: 'ghana', label: 'Ghana' },
+    ],
+
+    // DEAL FORMAT
+    dealFormatLabel: 'FORMATO DE ACTIVO · DEAL FORMAT',
+    dealFormatTitle: 'Lo que estarías evaluando.',
+    dealFormatBody1: 'Estamos en fase previa al primer cierre. Lo que podemos mostrarte es la estructura — el formato que seguirá cada acuerdo.',
+    dealFormatBody2: 'Gurumbé está diseñado tanto para asignadores institucionales como para inversores minoristas calificados. Los tamaños mínimos de ticket son accesibles.',
+    dealFormatRows: [
+      ['Tipo de activo', 'Apartamento de servicios premium, 2–4 unidades'],
+      ['Geografía', 'Nairobi (Fase 1a) · Accra (Fase 1b)'],
+      ['Vehículo legal', 'SPV constituida en Kenia / SPV constituida en Ghana'],
+      ['Estándar de token', 'ERC-3643 (token de seguridad regulado)'],
+      ['Ticket mínimo', 'Por confirmar con TokenCity — objetivo €5,000'],
+      ['Distribución', 'Mensual, automatizada vía contrato inteligente'],
+      ['Derecho de uso', 'Noches anuales proporcionales, reserva con conserje'],
+      ['Salida', 'Mercado secundario a través de la plataforma TokenCity'],
+      ['Auditoría', 'Valoración independiente anual'],
+      ['Riel de distribución', 'TokenCity (compatible con MiCA, regulado en la UE)'],
+    ],
+
+    // PROCESS
+    processLabel: 'PROCESO · PROCESS',
+    processTitle: 'Cómo entrar.',
+    processSteps: [
+      { num: '01', title: 'Expresa tu interés', body: 'Completa el formulario. Selecciona Inversión como tipo de consulta. Te enviaremos el memorando de información preliminar.', accent: 'var(--color-primary)' },
+      { num: '02', title: 'Alta vía TokenCity', body: 'Verificación KYC/AML a través de nuestro socio de distribución regulado en la UE. El proceso tarda 10–15 minutos.', accent: 'var(--color-secondary)' },
+      { num: '03', title: 'Asigna', body: 'Elige tu tramo. Recibe tus unidades digitales. Las distribuciones comienzan el primer mes tras la entrada en operación del activo.', accent: 'var(--color-tertiary)' },
+    ],
+    processQuote: 'Una semilla no pide permiso para crecer — encuentra su tierra y comienza.',
+    processCta: 'Unirse a la lista de espera →',
   },
   aboutPage: {
     label: 'THE ETHOS · EL CIMIENTO',

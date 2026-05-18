@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     'corridor',
   ],
   authors: [{ name: 'Daniel Fernandez Leston' }],
+  icons: {
+    icon: '/icon.svg',
+  },
   openGraph: {
     title: 'Gurumbé Capital — South-to-South Financial Architecture',
     description:

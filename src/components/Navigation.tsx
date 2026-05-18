@@ -112,6 +112,7 @@ export default function Navigation({ dict, lang }: NavigationProps) {
           {/* Lang Switcher Desktop */}
           <Link
             href={togglePath}
+            scroll={false}
             className="font-label-sm"
             style={{
               color: 'var(--color-primary)',
@@ -145,6 +146,7 @@ export default function Navigation({ dict, lang }: NavigationProps) {
           {/* Lang Switcher Mobile */}
           <Link
             href={togglePath}
+            scroll={false}
             className="font-label-sm"
             style={{
               color: 'var(--color-primary)',
