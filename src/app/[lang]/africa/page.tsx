@@ -21,13 +21,13 @@ export default async function AfricaPage({
     { title: pageDict.pillar5Title, body: pageDict.pillar5Body },
     { title: pageDict.pillar6Title, body: pageDict.pillar6Body },
     { title: pageDict.pillar7Title, body: pageDict.pillar7Body },
-    { title: pageDict.pillar8Title, body: pageDict.pillar8Body },
+
   ]
 
   return (
     <main className="min-h-screen bg-surface-main">
       <Navigation dict={dict.navigation} lang={lang} />
-      
+
       {/* Hero Header */}
       <section
         style={{
