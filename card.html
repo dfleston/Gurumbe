@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@400;500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Premium champagne gold gradient requested by the user */
+            --gold-gradient: linear-gradient(135deg, #fef1c9 0%, #fce2a1 30%, #e6be65 50%, #f3d68b 75%, #fffbf0 100%);
+            /* Unified solid golden accent color selected from the champagne palette for crisp symbol rendering */
+            --gold-solid: #fce2a1;
+        }
+
+        body {
+            background: #1c1a17;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            font-family: 'Montserrat', sans-serif;
+            gap: 36px;
+        }
+
+        .card-label {
+            font-size: 8px;
+            letter-spacing: 0.38em;
+            text-transform: uppercase;
+            color: rgba(252, 226, 161, 0.35);
+            text-align: center;
+        }
+
+        /* Strict physical aspect ratio and boundary limits */
+        .card {
+            width: 340px;
+            height: 194px;
+            background: #0d0d0d;
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow:
+                0 1px 2px rgba(0, 0, 0, 0.9),
+                0 6px 20px rgba(0, 0, 0, 0.7),
+                0 20px 44px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.025);
+        }
+
+        /* Global Gold Color classes */
+        .gold-text {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: var(--gold-solid);
+        }
+
+        /* ── FRONT ── */
+        .card-front .pattern-band {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 25%;
+            background: rgba(255, 255, 255, 0.016);
+            border-right: 1px solid rgba(252, 226, 161, 0.09);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            padding: 10px 0;
+        }
+
+        /* Uniform styling for ambient symbols in background */
+        .pattern-band svg {
+            fill: var(--gold-solid);
+            color: var(--gold-solid);
+            opacity: 0.38;
+        }
+
+        .card-front .brand-zone {
+            position: absolute;
+            left: 25%;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            /* Brought the front text elements slightly lower as requested */
+            transform: translateY(12px);
+        }
+
+        .company-name {
+            font-family: 'Cinzel', Georgia, serif;
+            font-size: 27px;
+            font-weight: 400;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            line-height: 1;
+            display: block;
+            white-space: nowrap;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: var(--gold-solid);
+        }
+
+        .company-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 7px;
+            font-weight: 500;
+            letter-spacing: 0.46em;
+            text-transform: uppercase;
+            color: var(--gold-solid);
+            opacity: 0.85;
+            display: block;
+            white-space: nowrap;
+        }
+
+        /* ── BACK ── */
+        .card-back {
+            padding: 18px 20px 16px 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .back-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .name-block {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .partner-name {
+            font-family: 'Cinzel', Georgia, serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            line-height: 1.2;
+            margin-bottom: 3px;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: var(--gold-solid);
+        }
+
+        .partner-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 6.8px;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            color: var(--gold-solid);
+            opacity: 0.72;
+        }
+
+        .icon-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-top: 2px;
+        }
+
+        /* Clean branding color for active symbols */
+        .icon-row svg {
+            fill: var(--gold-solid);
+            color: var(--gold-solid);
+            opacity: 0.88;
+            flex-shrink: 0;
+        }
+
+        .contact-info {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 6.8px;
+            font-weight: 400;
+            line-height: 1.85;
+            letter-spacing: 0.06em;
+            color: var(--gold-solid);
+            opacity: 0.78;
+            margin-top: 14px;
+        }
+
+        .cities-row {
+            margin-top: auto;
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .cities-row span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 6.8px;
+            font-weight: 500;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--gold-solid);
+            opacity: 0.82;
+        }
+
+        .cities-row .sep {
+            width: 1px;
+            height: 8px;
+            background: rgba(252, 226, 161, 0.25);
+            opacity: 1;
+        }
+
+        /* Decorative footer section on the bottom right of the card back */
+        .bottom-anchor {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 32%;
+            height: 18%;
+            background: rgba(255, 255, 255, 0.012);
+            border-top: 1px solid rgba(252, 226, 161, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            overflow: hidden;
+            padding: 0 6px;
+        }
+
+        .bottom-anchor svg {
+            fill: var(--gold-solid);
+            color: var(--gold-solid);
+            opacity: 0.22;
+        }
+
+        /* ── PRINT OPTIMIZATION STYLES ── */
+        @media print {
+            body {
+                background: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                display: block !important;
+            }
+
+            .card-label {
+                display: none !important;
+            }
+
+            .card {
+                width: 3.5in !important;
+                height: 2in !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                margin: 0 auto 0.5in auto !important;
+                /* Spacing between cards on preview/print sheets */
+                page-break-after: always !important;
+                page-break-inside: avoid !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- FRONT CARD -->
+    <div class="card card-front">
+        <div class="pattern-band">
+            <!-- Symbol 1: Dono Hourglass -->
+            <svg viewBox="0 0 360 360" width="22" height="22">
+                <path
+                    d="M280,300l-60-120l60-120c0,0,35.8-60-100-60C43.9,0,80,60,80,60l0,0l60,120L80,300c0,0-35.8,60,100,60 C316.1,360,280,300,280,300z" />
+            </svg>
+
+            <!-- Symbol 2: Intricate Loop Crest -->
+            <svg viewBox="-37.654 -4.726 510 510" width="22" height="22">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M180.475,11.245c11.609,15.968,7.794,46.741,26.767,55.644 c26.062-0.674,25.307-27.081,40.147-38.522c37.423-25.598,80.812-4.661,84.757,21.401c8.344,55.104-94.203,80.456-84.757,136.968 c9.536,33.494,46.84-40.814,80.296-4.281c29.544,65.467-102.894,51.963-95.405,99.257c8.479,69.408,83.598-43.18,99.866,7.75 c7.444,61.115-90.009,39.543-71.376,85.605c31.053,43.338,93.146-42.834,84.878-31.873c43.16-57.209,85.813-159.123,29.777-256.006 c99.626,91.095,71.729,313.357-69.21,350.594c14.787,9.459,18.504,36.646,8.087,48.568c-10.346,11.842-36.933,22.807-57.991,4.281 c-10.31-14.361,2.403-39.824-26.765-47.08c-18.745-4.664-32.433,39.398-55.647,52.135c-15.555,8.533-43.473,1.455-59.915-15.34 c-14.078-14.379-14.788-47.295,0.466-56.301c26.519-15.656,80.032-33.082,83.868-87.5c-5.471-40.646-59.689,35.025-84.756,8.559 c-34.083-68.123,83.784-46.83,89.217-102.725c-0.074-36.338-67.55,32.542-89.217-8.562c-38.333-69.896,114.667-36.896,93.68-94.165 c-24.013-47.731-112.56,5.376-147.334,72.364c-19.86,38.258-46.917,121.406-34.647,187.93 C-22.375,289.606-9.89,111.731,125.831,70.548c-16.777-6.39-21.382-28.988-8.3-51.689C125.911,4.318,159.07-11.08,180.475,11.245z" />
+            </svg>
+
+            <!-- Symbol 3: Tribal Stool Crest -->
+            <svg viewBox="0 0 252 378" width="16" height="24">
+                <path
+                    d="M 116 0 109 3 103 9 100 15 98 22 98 26 97 27 96 48 95 49 54 49 51 50 47 54 47 60 49 63 49 65 54 69 79 95 89 109 91 113 90 114 48 114 46 112 32 105 22 102 9 102 5 104 2 107 0 112 1 268 2 269 2 284 20 284 21 285 21 377 230 377 230 285 231 284 251 284 251 112 249 107 246 104 242 102 229 102 219 105 205 112 203 114 159 114 158 113 175 90 186 79 201 68 204 59 203 53 199 50 192 50 191 49 163 49 162 48 152 48 150 41 150 25 149 24 149 20 144 9 138 4 131 1 Z M 194 287 194 349 192 351 61 351 60 350 60 287 61 286 169 286 170 285 192 285 Z M 146 159 166 159 167 160 192 160 194 162 194 252 193 253 192 253 191 252 190 252 189 251 188 251 186 249 185 249 183 247 182 247 167 232 167 231 165 229 165 228 163 226 163 225 162 224 162 223 160 221 160 220 159 219 159 218 158 217 158 215 157 214 157 213 156 212 156 210 155 209 155 208 154 207 154 205 153 204 153 201 152 200 152 198 151 197 151 194 150 193 150 189 149 188 149 184 148 183 148 178 147 177 147 171 146 170 146 163 145 162 145 160 Z M 109 158 110 159 110 171 109 172 109 180 108 181 108 186 107 187 107 190 106 191 106 194 105 195 105 198 104 199 104 201 103 202 103 203 102 204 102 206 101 207 101 208 100 209 100 211 99 212 99 213 98 214 98 215 97 216 97 217 95 219 95 220 94 221 94 222 92 224 92 224 89 228 89 229 86 232 86 233 73 246 72 246 68 250 67 250 64 253 63 253 61 255 60 254 60 159 61 158 Z"
+                    fill="currentColor" fill-rule="evenodd" />
+            </svg>
+        </div>
+
+        <div class="brand-zone">
+            <span class="company-name">Gurumbé</span>
+            <span class="company-subtitle">Capital&nbsp;&nbsp;Partners</span>
+        </div>
+    </div>
+    <div class="card-label">Front</div>
+
+    <!-- BACK CARD -->
+    <div class="card card-back">
+        <div class="back-top">
+            <div class="name-block">
+                <div class="partner-name">Daniel Fernández Lestón</div>
+                <div class="partner-title">Founding Partner</div>
+            </div>
+            <div class="icon-row">
+                <!-- Icon 1: Dono Hourglass -->
+                <svg viewBox="0 0 360 360" width="20" height="20">
+                    <path
+                        d="M280,300l-60-120l60-120c0,0,35.8-60-100-60C43.9,0,80,60,80,60l0,0l60,120L80,300c0,0-35.8,60,100,60 C316.1,360,280,300,280,300z" />
+                </svg>
+                <!-- Icon 2: Intricate Loop Crest -->
+                <svg viewBox="-37.654 -4.726 510 510" width="20" height="20">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M180.475,11.245c11.609,15.968,7.794,46.741,26.767,55.644 c26.062-0.674,25.307-27.081,40.147-38.522c37.423-25.598,80.812-4.661,84.757,21.401c8.344,55.104-94.203,80.456-84.757,136.968 c9.536,33.494,46.84-40.814,80.296-4.281c29.544,65.467-102.894,51.963-95.405,99.257c8.479,69.408,83.598-43.18,99.866,7.75 c7.444,61.115-90.009,39.543-71.376,85.605c31.053,43.338,93.146-42.834,84.878-31.873c43.16-57.209,85.813-159.123,29.777-256.006 c99.626,91.095,71.729,313.357-69.21,350.594c14.787,9.459,18.504,36.646,8.087,48.568c-10.346,11.842-36.933,22.807-57.991,4.281 c-10.31-14.361,2.403-39.824-26.765-47.08c-18.745-4.664-32.433,39.398-55.647,52.135c-15.555,8.533-43.473,1.455-59.915-15.34 c-14.078-14.379-14.788-47.295,0.466-56.301c26.519-15.656,80.032-33.082,83.868-87.5c-5.471-40.646-59.689,35.025-84.756,8.559 c-34.083-68.123,83.784-46.83,89.217-102.725c-0.074-36.338-67.55,32.542-89.217-8.562c-38.333-69.896,114.667-36.896,93.68-94.165 c-24.013-47.731-112.56,5.376-147.334,72.364c-19.86,38.258-46.917,121.406-34.647,187.93 C-22.375,289.606-9.89,111.731,125.831,70.548c-16.777-6.39-21.382-28.988-8.3-51.689C125.911,4.318,159.07-11.08,180.475,11.245z" />
+                </svg>
+                <!-- Icon 3: Tribal Stool Crest -->
+                <svg viewBox="0 0 252 378" width="14" height="21">
+                    <path
+                        d="M 116 0 109 3 103 9 100 15 98 22 98 26 97 27 96 48 95 49 54 49 51 50 47 54 47 60 49 63 49 65 54 69 79 95 89 109 91 113 90 114 48 114 46 112 32 105 22 102 9 102 5 104 2 107 0 112 1 268 2 269 2 284 20 284 21 285 21 377 230 377 230 285 231 284 251 284 251 112 249 107 246 104 242 102 229 102 219 105 205 112 203 114 159 114 158 113 175 90 186 79 201 68 204 59 203 53 199 50 192 50 191 49 163 49 162 48 152 48 150 41 150 25 149 24 149 20 144 9 138 4 131 1 Z M 194 287 194 349 192 351 61 351 60 350 60 287 61 286 169 286 170 285 192 285 Z M 146 159 166 159 167 160 192 160 194 162 194 252 193 253 192 253 191 252 190 252 189 251 188 251 186 249 185 249 183 247 182 247 167 232 167 231 165 229 165 228 163 226 163 225 162 224 162 223 160 221 160 220 159 219 159 218 158 217 158 215 157 214 157 213 156 212 156 210 155 209 155 208 154 207 154 205 153 204 153 201 152 200 152 198 151 197 151 194 150 193 150 189 149 188 149 184 148 183 148 178 147 177 147 171 146 170 146 163 145 162 145 160 Z M 109 158 110 159 110 171 109 172 109 180 108 181 108 186 107 187 107 190 106 191 106 194 105 195 105 198 104 199 104 201 103 202 103 203 102 204 102 206 101 207 101 208 100 209 100 211 99 212 99 213 98 214 98 215 97 216 97 217 95 219 95 220 94 221 94 222 92 224 92 224 89 228 89 229 86 232 86 233 73 246 72 246 68 250 67 250 64 253 63 253 61 255 60 254 60 159 61 158 Z"
+                        fill="currentColor" fill-rule="evenodd" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            leston@gurumbecapital.com<br>
+            Tel. +254 (0) 719480009<br>
+            www.gurumbecapital.com
+        </div>
+
+        <div class="cities-row">
+            <span>Nairobi</span>
+            <div class="sep"></div>
+            <span>Madrid</span>
+            <div class="sep"></div>
+            <span>Accra</span>
+        </div>
+
+        <!-- Ambient horizontal decoration footer section using the identical integrated SVGs -->
+        <div class="bottom-anchor">
+            <svg viewBox="0 0 360 360" width="14" height="14">
+                <path
+                    d="M280,300l-60-120l60-120c0,0,35.8-60-100-60C43.9,0,80,60,80,60l0,0l60,120L80,300c0,0-35.8,60,100,60 C316.1,360,280,300,280,300z" />
+            </svg>
+            <svg viewBox="-37.654 -4.726 510 510" width="14" height="14">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M180.475,11.245c11.609,15.968,7.794,46.741,26.767,55.644 c26.062-0.674,25.307-27.081,40.147-38.522c37.423-25.598,80.812-4.661,84.757,21.401c8.344,55.104-94.203,80.456-84.757,136.968 c9.536,33.494,46.84-40.814,80.296-4.281c29.544,65.467-102.894,51.963-95.405,99.257c8.479,69.408,83.598-43.18,99.866,7.75 c7.444,61.115-90.009,39.543-71.376,85.605c31.053,43.338,93.146-42.834,84.878-31.873c43.16-57.209,85.813-159.123,29.777-256.006 c99.626,91.095,71.729,313.357-69.21,350.594c14.787,9.459,18.504,36.646,8.087,48.568c-10.346,11.842-36.933,22.807-57.991,4.281 c-10.31-14.361,2.403-39.824-26.765-47.08c-18.745-4.664-32.433,39.398-55.647,52.135c-15.555,8.533-43.473,1.455-59.915-15.34 c-14.078-14.379-14.788-47.295,0.466-56.301c26.519-15.656,80.032-33.082,83.868-87.5c-5.471-40.646-59.689,35.025-84.756,8.559 c-34.083-68.123,83.784-46.83,89.217-102.725c-0.074-36.338-67.55,32.542-89.217-8.562c-38.333-69.896,114.667-36.896,93.68-94.165 c-24.013-47.731-112.56,5.376-147.334,72.364c-19.86,38.258-46.917,121.406-34.647,187.93 C-22.375,289.606-9.89,111.731,125.831,70.548c-16.777-6.39-21.382-28.988-8.3-51.689C125.911,4.318,159.07-11.08,180.475,11.245z" />
+            </svg>
+            <svg viewBox="0 0 252 378" width="11" height="16.5">
+                <path
+                    d="M 116 0 109 3 103 9 100 15 98 22 98 26 97 27 96 48 95 49 54 49 51 50 47 54 47 60 49 63 49 65 54 69 79 95 89 109 91 113 90 114 48 114 46 112 32 105 22 102 9 102 5 104 2 107 0 112 1 268 2 269 2 284 20 284 21 285 21 377 230 377 230 285 231 284 251 284 251 112 249 107 246 104 242 102 229 102 219 105 205 112 203 114 159 114 158 113 175 90 186 79 201 68 204 59 203 53 199 50 192 50 191 49 163 49 162 48 152 48 150 41 150 25 149 24 149 20 144 9 138 4 131 1 Z M 194 287 194 349 192 351 61 351 60 350 60 287 61 286 169 286 170 285 192 285 Z M 146 159 166 159 167 160 192 160 194 162 194 252 193 253 192 253 191 252 190 252 189 251 188 251 186 249 185 249 183 247 182 247 167 232 167 231 165 229 165 228 163 226 163 225 162 224 162 223 160 221 160 220 159 219 159 218 158 217 158 215 157 214 157 213 156 212 156 210 155 209 155 208 154 207 154 205 153 204 153 201 152 200 152 198 151 197 151 194 150 193 150 189 149 188 149 184 148 183 148 178 147 177 147 171 146 170 146 163 145 162 145 160 Z M 109 158 110 159 110 171 109 172 109 180 108 181 108 186 107 187 107 190 106 191 106 194 105 195 105 198 104 199 104 201 103 202 103 203 102 204 102 206 101 207 101 208 100 209 100 211 99 212 99 213 98 214 98 215 97 216 97 217 95 219 95 220 94 221 94 222 92 224 92 224 89 228 89 229 86 232 86 233 73 246 72 246 68 250 67 250 64 253 63 253 61 255 60 254 60 159 61 158 Z"
+                    fill="currentColor" fill-rule="evenodd" />
+            </svg>
+        </div>
+    </div>
+    <div class="card-label">Back</div>
+
+</body>
+
+</html>
