@@ -15,7 +15,7 @@ export default {
   preHero: {
     label: 'THE ARCHITECTURE · LA ARQUITECTURA',
     headline: 'Integridad Estructural',
-    body: 'Invertimos de Sur a Sur a través de estructuras tokenizadas y reguladas, combinando excelencia operativa, tecnologías inteligentes, y sensibilidad cultural.',
+    body: 'Invertimos de Sur a Sur a través de estructuras tokenizadas-reguladas, aportando gobernanza, excelencia operativa, tecnologías inteligentes, y sensibilidad cultural.',
   },
   hero: {
     label: 'UNA HISTORIA OLVIDAD POR CONSTRUIR',
@@ -69,7 +69,7 @@ export default {
     focusHubs: 'FOCUS HUBS',
     phase1Label: 'PHASE 1 — ROOTS',
     phase1Title: 'Bienes Raíces Inteligentes',
-    phase1Body: 'Sentando las bases físicas. Bienes raíces de servicios y hospitalidad africanos tokenizados (nodos de enfoque en Nairobi y Accra, + pipeline en Namibia/Angola). Respaldados por títulos de propiedad. Arquitecturas de contratos inteligentes que automatizan el reparto de ingresos y los derechos de uso personal.',
+    phase1Body: 'Bienes inmobiliarios tokenizados en regiones claves del continente (empezando en Nairobi y Accra). Legalizados a través de estrucutras legales locales y digitalizados en contratos inteligentes que automatizan el reparto de ingresos y los derechos de uso personal.',
     phase2Label: 'PHASE 2 — POWER',
     phase2Title: 'Energía Descentralizada',
     phase2Body: 'Financiación, despliegue y operación de instalaciones solares, bancos de baterías, y microredes descentralizadas. La irradiación solar de África es una ventaja estructural invertible y esperando ser convertida en rendimiento económico e impacto social.',

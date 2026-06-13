@@ -1,6 +1,7 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { getDictionary } from '@/i18n/getDictionary'
+import PreHero from '@/components/sections/PreHero'
 import type { Locale } from '@/i18n/config'
 import Link from 'next/link'
 
@@ -16,7 +17,7 @@ export default async function StructurePage({
   return (
     <main className="min-h-screen bg-surface-main">
       <Navigation dict={dict.navigation} lang={lang} />
-
+      <PreHero dict={dict.preHero} />
       {/* Hero Header */}
       <section
         style={{

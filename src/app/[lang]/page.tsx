@@ -25,13 +25,16 @@ export default async function Home({
       <Navigation dict={dict.navigation} lang={lang} />
       <PreHero dict={dict.preHero} />
       <Hero dict={dict.hero} lang={lang} />
-      <Corridor dict={dict.corridor} />
+
       <WhyNow dict={dict.whyNow} />
-      <TokenizationIntro dict={dict.tokenizationIntro} lang={lang} />
       <WhatWeBuild dict={dict.whatWeBuild} />
+      <Corridor dict={dict.corridor} />
       <FocusCorridors dict={dict.focusCorridors} />
+
+      <TokenizationIntro dict={dict.tokenizationIntro} lang={lang} />
       <Thoughts dict={dict.thoughts} lang={lang} />
       <Contact dict={dict.contact} />
+
       <Footer dict={dict.footer} lang={lang} />
     </main>
   )
