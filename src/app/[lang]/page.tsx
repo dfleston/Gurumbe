@@ -32,9 +32,9 @@ export default async function Home({
       <FocusCorridors dict={dict.focusCorridors} />
 
       <TokenizationIntro dict={dict.tokenizationIntro} lang={lang} />
-      <Thoughts dict={dict.thoughts} lang={lang} />
-      <Contact dict={dict.contact} />
 
+      <Contact dict={dict.contact} />
+      <Thoughts dict={dict.thoughts} lang={lang} />
       <Footer dict={dict.footer} lang={lang} />
     </main>
   )
