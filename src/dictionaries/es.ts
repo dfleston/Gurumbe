@@ -51,7 +51,7 @@ export default {
     force4Body: 'Bienes raíces, materias primas, infraestructura energética — activos antes ilíquidos, opacos e inaccesibles. La tokenización digital hace que estos activos sean negociables, transparentes y accesibles para cualquier inversor. La arquitectura ya existe. Entiende por qué importa →',
     force5Label: '05 · LA REALIZACIÓN COLECTIVA',
     force5Title: 'La Renegociación',
-    force5Body: 'África ha comprendido que el desarrollo del continente tiene que estar liderado por capital endógeno, y que el momento es ahora. El continente ya no es marginal; se está convirtiendo en la opción de invesión atractiva para el capital global. Está es la oportunidad para construir bajo términos justos y soberanos.',
+    force5Body: 'África ha comprendido que el desarrollo del continente tiene que estar liderado por capital endógeno, y que el momento es ahora. El continente ya no es marginal; se está convirtiendo en la opción de invesión atractiva para el capital global. Esta es la oportunidad para construir bajo términos justos y soberanos.',
     force6Label: '06 · EL RECONOCIMIENTO HISTÓRICO',
     force6Title: 'Retorno Soberano',
     force6Body: 'El centro de gravedad geopolítico está cambiando. El retorno de soberanía y autodeterminación economica no es mito pasado. Esta es la década en que se pongan los cimientos para convertirse en arquitectura.',
