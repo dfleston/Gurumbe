@@ -228,9 +228,10 @@ export default function InvestPageClient({ lang, dict }: { lang: string; dict: a
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem' }} className="phases-grid">
             {investDict.roadmapPhases.map((phase: any) => {
               const accentColor = getPhaseAccentColor(phase.num)
-              return (
+              const isFirstPhase = phase.num === '01'
+
+              const cardContent = (
                 <div
-                  key={phase.num}
                   style={{
                     border: `1px solid ${phase.active ? 'var(--color-primary)' : 'var(--color-outline-variant)'}`,
                     borderTop: `4px solid ${phase.active ? 'var(--color-primary)' : 'var(--color-outline-variant)'}`,
@@ -240,7 +241,9 @@ export default function InvestPageClient({ lang, dict }: { lang: string; dict: a
                     flexDirection: 'column',
                     overflow: 'hidden',
                     transition: 'transform 0.2s, border-color 0.2s',
+                    height: '100%',
                   }}
+                  className={isFirstPhase ? 'hover:scale-[1.02] cursor-pointer' : ''}
                 >
                   <PhaseImagePlaceholder
                     num={phase.num}
@@ -248,7 +251,7 @@ export default function InvestPageClient({ lang, dict }: { lang: string; dict: a
                     accentColor={accentColor}
                     active={phase.active}
                   />
-                  <div style={{ padding: '1.75rem' }}>
+                  <div style={{ padding: '1.75rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
                     <span className="font-label-sm" style={{ color: phase.active ? 'var(--color-primary)' : 'var(--color-on-surface-variant)' }}>
                       {phase.label}
                     </span>
@@ -258,21 +261,39 @@ export default function InvestPageClient({ lang, dict }: { lang: string; dict: a
                     <p className="font-body-md" style={{ color: 'var(--color-on-surface-variant)', fontSize: '0.88rem', lineHeight: 1.5, margin: '0 0 1.25rem' }}>
                       {phase.description}
                     </p>
-                    <span
-                      className="font-label-sm"
-                      style={{
-                        color: phase.active ? 'var(--color-primary)' : 'var(--color-on-surface-variant)',
-                        border: `1px solid ${phase.active ? 'var(--color-primary)' : 'var(--color-outline-variant)'}`,
-                        padding: '0.2rem 0.6rem',
-                        display: 'inline-block',
-                        fontSize: '0.65rem',
-                      }}
-                    >
-                      {phase.active ? investDict.roadmapActiveText : investDict.roadmapInactiveText}
-                    </span>
+                    <div style={{ marginTop: 'auto' }}>
+                      <span
+                        className="font-label-sm"
+                        style={{
+                          color: phase.active ? 'var(--color-primary)' : 'var(--color-on-surface-variant)',
+                          border: `1px solid ${phase.active ? 'var(--color-primary)' : 'var(--color-outline-variant)'}`,
+                          padding: '0.2rem 0.6rem',
+                          display: 'inline-block',
+                          fontSize: '0.65rem',
+                        }}
+                      >
+                        {phase.active ? investDict.roadmapActiveText : investDict.roadmapInactiveText}
+                      </span>
+                    </div>
                   </div>
                 </div>
               )
+
+              if (isFirstPhase) {
+                return (
+                  <a
+                    key={phase.num}
+                    href="http://rwa.gurumbecapital.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
+                  >
+                    {cardContent}
+                  </a>
+                )
+              }
+
+              return <div key={phase.num}>{cardContent}</div>
             })}
           </div>
         </div>
