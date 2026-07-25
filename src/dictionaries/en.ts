@@ -200,7 +200,7 @@ export default {
     label: 'THESIS · TESIS ',
     headline: 'Africa is joyfully unavoidable.',
     subhead: 'The demographics, the resources, the technology leapfrog, and the monetary shift. The investment case does not require optimism. It requires arithmetic.',
-    pillarsHeadline: 'Seven Arguments. One Propuesta',
+    pillarsHeadline: 'Seven Arguments. One Proposal',
     pillar1Title: 'Pillar 1 — "Africa" Is Joyfully Unavoidable',
     pillar1Body: 'The demographics, resources, and digital-first growth of the African continent make it a key economic engine of the coming decades. We embrace this reality not as a risk to be managed, but as a joyful, high-conviction certainty.',
     pillar2Title: 'Pillar 2 — Spain as a "South Arrow"',

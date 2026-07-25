@@ -16,7 +16,9 @@ export default function Contact({ dict }: ContactProps) {
     message: '',
     email: '',
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [errorMsg, setErrorMsg] = useState('')
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -25,13 +27,37 @@ export default function Contact({ dict }: ContactProps) {
     setForm((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // In production: connect to API route / email service
-    console.log('Dossier submitted:', form)
-    setSubmitted(true)
-    setForm({ name: '', organization: '', type: '', message: '', email: '' })
-    setTimeout(() => setSubmitted(false), 6000)
+    setIsSubmitting(true)
+    setErrorMsg('')
+
+    const formData = new FormData(e.currentTarget)
+    formData.append(
+      'access_key',
+      process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ||
+        'fb15d898-b2a1-456a-b0dd-3ede46ec2535'
+    )
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        setSubmitted(true)
+        setForm({ name: '', organization: '', type: '', message: '', email: '' })
+      } else {
+        setErrorMsg(data.message || 'Something went wrong. Please try again.')
+      }
+    } catch (err) {
+      setErrorMsg('Failed to submit form. Please check your connection.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const inquiryTypes: { value: InquiryType; label: string }[] = [
@@ -88,7 +114,7 @@ export default function Contact({ dict }: ContactProps) {
               </p>
             </div>
 
-            {/* Contact info */}
+            {/* Contact info info */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
                 <svg
@@ -184,6 +210,19 @@ export default function Contact({ dict }: ContactProps) {
               </div>
             ) : (
               <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+                {errorMsg && (
+                  <div
+                    style={{
+                      padding: '0.75rem 1rem',
+                      border: '1px solid #ff4d4d',
+                      backgroundColor: 'rgba(255,77,77,0.1)',
+                      color: '#ff4d4d',
+                      fontSize: '0.875rem',
+                    }}
+                  >
+                    {errorMsg}
+                  </div>
+                )}
                 {/* Name + Organization */}
                 <div
                   style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}
@@ -292,8 +331,13 @@ export default function Contact({ dict }: ContactProps) {
 
                 {/* Submit */}
                 <div style={{ paddingTop: '0.5rem' }}>
-                  <button type="submit" className="btn-ghost" style={{ width: '100%', cursor: 'pointer' }}>
-                    {dict.formSubmit}
+                  <button
+                    type="submit"
+                    className="btn-ghost"
+                    disabled={isSubmitting}
+                    style={{ width: '100%', cursor: isSubmitting ? 'not-allowed' : 'pointer', opacity: isSubmitting ? 0.7 : 1 }}
+                  >
+                    {isSubmitting ? 'Sending....' : dict.formSubmit}
                   </button>
                   <p
                     className="font-label-sm"
